@@ -15,36 +15,29 @@ const firaCode = Fira_Code({
   variable: '--font-mono',
 });
 
-// Dynamic global search and metadata schemas
 export const metadata: Metadata = {
   metadataBase: new URL('https://shouvikdas.eu.org'),
   title: {
-    default: 'Shouvik Das Portfolio | 3D Web & UI/UX Developer',
-    template: '%s | Shouvik Das Portfolio',
+    default: 'Shouvik Das | 3D Portfolio & Content Creator',
+    template: '%s | Shouvik Das',
   },
-  description: 'Explore the 3D interactive portfolio of Shouvik Das. Expert Web3D Developer & UI/UX Designer crafting hardware-accelerated interfaces and AI-powered dynamic products.',
+  description: 'Welcome to my official 3D portfolio website. I am Shouvik Das, a Next.js frontend developer, web designer, and digital content creator specializing in interactive web experiences, anime/manga community hubs, and high-performance applications.',
   keywords: [
-    'Shouvik Das Portfolio',
-    'Web3D Developer',
-    'Anime Nation India',
-    'UI/UX Designer',
-    'Next.js developer in Malda',
     'Shouvik Das',
-    '3D Web Developer',
-    'React Three Fiber Portfolio',
-    'Three.js Portfolio',
-    'Next.js 3D Website',
-    'SVK Downloader',
-    'AI Blogging',
-    'Google Sitelinks SEO'
+    'Shouvik Das portfolio',
+    'Shouvik Das developer',
+    '3D Portfolio',
+    'Next.js developer',
+    'Three.js',
+    'Tailwind CSS'
   ],
   authors: [{ name: 'Shouvik Das', url: 'https://shouvikdas.eu.org' }],
   creator: 'Shouvik Das',
   openGraph: {
-    title: 'Shouvik Das Portfolio | 3D Web & UI/UX Developer',
-    description: 'Immersive Web3D experiences, hardware-accelerated models, and automated AI blogging.',
+    title: 'Shouvik Das | 3D Portfolio & Content Creator',
+    description: 'Welcome to my official 3D portfolio website. I am Shouvik Das, a Next.js frontend developer, web designer, and digital content creator specializing in interactive web experiences, anime/manga community hubs, and high-performance applications.',
     url: 'https://shouvikdas.eu.org',
-    siteName: 'Shouvik Das Portfolio',
+    siteName: 'Shouvik Das',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -58,8 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shouvik Das Portfolio | 3D Web & UI/UX Developer',
-    description: 'Immersive Web3D experiences, hardware-accelerated models, and automated AI blogging.',
+    title: 'Shouvik Das | 3D Portfolio & Content Creator',
+    description: 'Welcome to my official 3D portfolio website. I am Shouvik Das, a Next.js frontend developer, web designer, and digital content creator specializing in interactive web experiences, anime/manga community hubs, and high-performance applications.',
     creator: '@shouvikdas155',
     images: ['https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&auto=format&fit=crop&q=80'],
   },

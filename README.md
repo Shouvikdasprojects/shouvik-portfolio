@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shouvik Das | Modern 3D Portfolio Website
 
-## Getting Started
+> A high-performance, immersive 3D personal portfolio and digital content creator showcase. Pegged strictly to Indian Standard Time (IST) with hardware-accelerated visuals and automated live data integration.
 
-First, run the development server:
+---
+
+## 🌟 Core Features
+
+This website utilizes cutting-edge web design languages and state-of-the-art framework structures to offer a breathtaking, interactive developer experience:
+
+*   **Interactive 3D Elements:** Powered by **Three.js** and **React Three Fiber (R3F)** to render an additive volumetric cosmic starfield featuring 3,500 particles, Z-axis travel camera controls, and mouse-parallax viewport rotations.
+*   **Ultra-Modern Glassmorphic UI:** Crafted using high-fidelity Tailwind CSS glassmorphic panel tokens, custom glow borders, smooth transitions, and deep backdrop blur filter effects (`backdrop-blur-md`).
+*   **Live Indian Standard Time (IST) Digital Clock:** Pegged strictly to the `Asia/Kolkata` (IST) timezone using standard internationalization formatting, equipped with neon pink glow drop-shadows and real-time pulsing status signals.
+*   **Fully Responsive & Fluid Animations:** Staggered revealing heading load-ins, mouse-parallax tilt frames, and premium interactive hover effects powered by **Framer Motion**.
+*   **Functional Resume Download System:** Structured direct-routing links pointing seamlessly to root-level static assets (`/Shouvik_Das_Resume.pdf`) to prompt instant download dialogues.
+
+---
+
+## 🛠️ Tech Stack
+
+*   **Core Framework:** Next.js (App Router with ISR static route revalidations)
+*   **Core Logic:** React, TypeScript
+*   **3D Graphics Layer:** Three.js, React Three Fiber (R3F), `@react-three/drei`
+*   **Aesthetics & Styles:** Tailwind CSS, Vanilla CSS CSS-in-JS Tokens
+*   **Motion & Physics:** Framer Motion (Spring-based physics engines)
+*   **Icons & Assets:** Lucide React, SVG Custom Path vectors
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run a copy of the portfolio locally on your machine.
+
+### Prerequisites
+
+Ensure you have **Node.js** (v18.x or above) installed on your system.
+
+### 1. Installation
+
+Clone the repository and install all dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone https://github.com/your-username/shouvik-portfolio.git
+
+# Navigate into the project folder
+cd shouvik-portfolio
+
+# Install required packages
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the Development Server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Start the local server using standard Next.js dev commands:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Fire up local development environment
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) inside your web browser to view the application.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Production Builds & Verification
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To verify that all production static page routes compile successfully, execute the Next.js production bundler:
 
-## Deploy on Vercel
+```bash
+# Compile and build production optimized assets
+npm run build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Start the compiled production app locally
+npm run start
+```
