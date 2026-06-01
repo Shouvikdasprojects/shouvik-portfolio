@@ -211,10 +211,9 @@ export default function CosmosScene({ isMobile, scrollPercent, nodes }: CosmosSc
   return (
     <Canvas
       camera={{ position: [0, 0, 8], fov: 55 }}
-      dpr={isMobile ? 1 : [1, 2]}
-      gl={{ antialias: !isMobile, alpha: false, powerPreference: "high-performance" }}
+      dpr={isMobile ? 1 : [1, 1.5]}
+      gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
     >
-      <color attach="background" args={['#040209']} />
       
       {/* Colorful cinematic lighting */}
       <ambientLight intensity={0.4} />

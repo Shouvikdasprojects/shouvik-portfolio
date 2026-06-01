@@ -3,6 +3,7 @@ import { Outfit, Fira_Code } from 'next/font/google';
 import './globals.css';
 import { Suspense } from 'react';
 import Background3D from '@/components/3d/Background3D';
+import ConsoleGuard from '@/components/ui/ConsoleGuard';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -144,6 +145,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${outfit.variable} ${firaCode.variable} antialiased font-sans bg-transparent`}>
+        {/* Intercepts and silences three-party deprecations */}
+        <ConsoleGuard />
+
         {/* Global Continuous 3D WebGL cosmos fixed in the background */}
         <Suspense fallback={null}>
           <Background3D />
