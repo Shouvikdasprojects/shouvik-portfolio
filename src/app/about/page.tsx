@@ -7,7 +7,7 @@ import { personalInfo } from '@/lib/realData';
 import { getRealTimeSocialRegistry } from '@/lib/socialSync';
 import { Mail, Compass, Star, Heart, Camera, Film, Palette, MapPin, Link2 } from 'lucide-react';
 import { Suspense } from 'react';
-import TiltCard from '@/components/ui/TiltCard';
+import TiltCard from '@/components/ui/AboutTiltCardWrapper';
 
 export const metadata = {
   title: 'About Shouvik Das | Web3D Developer & UI/UX Designer',
