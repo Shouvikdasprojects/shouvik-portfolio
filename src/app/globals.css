@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: hsl(342 100% 50%); /* Glowing Neon Pink (#ff007f) */
+  --color-secondary: hsl(263 90% 60%); /* Violet Accent */
+  --color-accent: hsl(199 89% 48%); /* Electric Blue Accent */
+  --color-background-dark: hsl(250 24% 4%);
+  --color-card-dark: hsl(250 20% 6% / 0.7);
+  --color-border-dark: hsl(250 15% 15% / 0.5);
+  
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite alternate;
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 20s linear infinite;
+  --animate-bg-drift: bg-drift 30s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 15px 2px rgba(255, 0, 127, 0.15), 0 0 30px 4px rgba(139, 92, 246, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 25px 5px rgba(255, 0, 127, 0.35), 0 0 50px 8px rgba(139, 92, 246, 0.2);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bg-drift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+:root {
+  --background: 250 24% 4%;
+  --foreground: 0 0% 98%;
+  --card: 250 20% 6%;
+  --card-foreground: 0 0% 98%;
+  --popover: 250 20% 5%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 342 100% 50%; /* Pink */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 263 90% 60%; /* Violet */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 250 10% 60%;
+  --muted-foreground: 250 10% 75%;
+  --accent: 199 89% 48%; /* Electric Blue */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 250 15% 15%;
+  --input: 250 15% 15%;
+  --ring: 342 100% 50%;
+  --radius: 0.75rem;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(250 24% 3%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(342 100% 50% / 0.3), hsl(263 90% 60% / 0.3));
+  border-radius: 9999px;
+  border: 2px solid hsl(250 24% 3%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, hsl(342 100% 50% / 0.6), hsl(263 90% 60% / 0.6));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #0d0822 0%, #030206 100%);
+  color: #f8fafc;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background grid overlay */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Premium ambient radial glows */
+.ambient-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(150px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(10, 8, 20, 0.72);
+  backdrop-filter: blur(24px) saturate(220%);
+  -webkit-backdrop-filter: blur(24px) saturate(220%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  box-shadow: 
+    0 10px 35px 0 rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.07);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 0, 127, 0.55);
+  box-shadow: 
+    0 0 25px 2px rgba(255, 0, 127, 0.25),
+    0 0 50px 8px rgba(139, 92, 246, 0.15),
+    0 20px 50px -10px rgba(0, 0, 0, 0.85),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-input {
+  background: rgba(10, 8, 20, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  border-color: hsl(342 100% 50%);
+  outline: none;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.2);
+}
+
+/* 3D gradient text */
+.gradient-text-primary {
+  background: linear-gradient(135deg, #fff 20%, #ff007f 65%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-glow {
+  background: linear-gradient(135deg, #ff007f 0%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Tilt effect */
+.tilt-element {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.tilt-inner {
+  transform: translateZ(20px);
+}
+
+/* Card Hover glow */
+.card-hover-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255, 255, 255, 0.06), transparent 40%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card-hover-glow:hover::after {
+  opacity: 1;
+}
+
+/* Custom premium photo border glows */
+.photo-glow-border {
+  position: relative;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(255, 0, 127, 0.5), rgba(139, 92, 246, 0.5));
+  padding: 3px;
+  box-shadow: 0 10px 40px -10px rgba(255, 0, 127, 0.4), 0 0 20px 2px rgba(139, 92, 246, 0.2);
+  transition: all 0.5s ease;
+}
+
+.photo-glow-border:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 50px -5px rgba(255, 0, 127, 0.6), 0 0 30px 5px rgba(139, 92, 246, 0.3);
+}
+
+/* Skills capability card icons styling */
+.skill-badge-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a1a1aa;
+  transition: all 0.3s ease;
+}
+
+.skill-badge-btn:hover {
+  color: #ff007f;
+  background: rgba(255, 0, 127, 0.08);
+  border-color: rgba(255, 0, 127, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 127, 0.15);
+}

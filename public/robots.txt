@@ -1,0 +1,8 @@
+# =========================================================================
+#  SHOUVIK DAS - 3D PORTFOLIO SEO ROBOTS DIRECTIVES
+# =========================================================================
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://shouvikdas.eu.org/sitemap.xml
