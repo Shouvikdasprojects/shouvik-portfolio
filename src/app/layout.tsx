@@ -1,18 +1,21 @@
 import type { Metadata } from 'next';
 import { Outfit, Fira_Code } from 'next/font/google';
 import './globals.css';
+import { Suspense } from 'react';
 import Background3D from '@/components/3d/Background3D';
 
 const outfit = Outfit({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-sans',
+  display: 'swap',
 });
 
 const firaCode = Fira_Code({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-mono',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -142,7 +145,9 @@ export default function RootLayout({
       </head>
       <body className={`${outfit.variable} ${firaCode.variable} antialiased font-sans bg-transparent`}>
         {/* Global Continuous 3D WebGL cosmos fixed in the background */}
-        <Background3D />
+        <Suspense fallback={null}>
+          <Background3D />
+        </Suspense>
         
         {/* Main layout contents */}
         {children}

@@ -1,12 +1,13 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import GlassCard from '@/components/ui/GlassCard';
-import TiltCard from '@/components/ui/TiltCard';
 import GlowButton from '@/components/ui/GlowButton';
 import SafeImage from '@/components/ui/SafeImage';
 import { personalInfo } from '@/lib/realData';
 import { getRealTimeSocialRegistry } from '@/lib/socialSync';
 import { Mail, Compass, Star, Heart, Camera, Film, Palette, MapPin, Link2 } from 'lucide-react';
+import { Suspense } from 'react';
+import TiltCard from '@/components/ui/TiltCard';
 
 export const metadata = {
   title: 'About Shouvik Das | Web3D Developer & UI/UX Designer',
@@ -47,23 +48,29 @@ export default async function AboutPage() {
             
             {/* Left Column: Portrait Card with premium 3D Tilt */}
             <div className="lg:col-span-5 flex justify-center">
-              <TiltCard className="w-full max-w-[380px] p-4 bg-[#0b0814]/65 border-white/5 shadow-2xl relative group">
-                <div className="photo-glow-border overflow-hidden rounded-xl bg-slate-900 border border-white/10 aspect-[4/5] relative">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src={personalInfo.avatarUrl} 
-                    alt={personalInfo.name} 
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent pointer-events-none" />
-                  
-                  {/* Location badge on the picture */}
-                  <div className="absolute bottom-4 left-4 flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15 text-xs text-white font-semibold">
-                    <MapPin size={12} className="text-[#ff007f]" />
-                    {personalInfo.aboutDetails.location}
-                  </div>
+              <Suspense fallback={
+                <div className="w-full max-w-[380px] aspect-[4/5] rounded-xl bg-[#0b0814]/65 border border-white/5 flex items-center justify-center shadow-2xl relative">
+                  <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#ff007f]"></div>
                 </div>
-              </TiltCard>
+              }>
+                <TiltCard className="w-full max-w-[380px] p-4 bg-[#0b0814]/65 border-white/5 shadow-2xl relative group">
+                  <div className="photo-glow-border overflow-hidden rounded-xl bg-slate-900 border border-white/10 aspect-[4/5] relative">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img 
+                      src={personalInfo.avatarUrl} 
+                      alt={personalInfo.name} 
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent pointer-events-none" />
+                    
+                    {/* Location badge on the picture */}
+                    <div className="absolute bottom-4 left-4 flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15 text-xs text-white font-semibold">
+                      <MapPin size={12} className="text-[#ff007f]" />
+                      {personalInfo.aboutDetails.location}
+                    </div>
+                  </div>
+                </TiltCard>
+              </Suspense>
             </div>
 
             {/* Right Column: In-depth Biography & Passion Chronicles */}
