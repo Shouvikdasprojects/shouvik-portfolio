@@ -63,6 +63,9 @@ export const metadata: Metadata = {
     creator: '@shouvikdas155',
     images: ['https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&auto=format&fit=crop&q=80'],
   },
+  verification: {
+    google: 'Iy2BIme_V9-X_5NU_TMLqzs-PyR0x898Gkvdys1aSwg',
+  },
   alternates: {
     canonical: 'https://shouvikdas.eu.org',
   },
