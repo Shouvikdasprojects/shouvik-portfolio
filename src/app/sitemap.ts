@@ -1,8 +1,11 @@
 import { MetadataRoute } from 'next';
+import { getArticles } from '@/lib/db';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://shouvikdas.eu.org';
-  const routes = [
+  
+  // Static routes
+  const staticRoutes = [
     '',
     '/about',
     '/projects',
@@ -13,12 +16,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/privacy',
     '/terms',
-  ];
-
-  return routes.map((route) => ({
+  ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === '' || route === '/articles' || route === '/uploads' ? 'daily' : 'weekly',
+    changeFrequency: route === '' || route === '/articles' || route === '/uploads' ? 'daily' as const : 'weekly' as const,
     priority: route === '' ? 1.0 : route === '/contact' ? 0.9 : 0.8,
   }));
+
+  try {
+    // Dynamic article routes
+    const articles = await getArticles();
+    const articleRoutes = articles.map((article) => ({
+      url: `${baseUrl}/articles/${article.slug}`,
+      lastModified: new Date(article.publishedAt || new Date()),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }));
+
+    return [...staticRoutes, ...articleRoutes];
+  } catch (error) {
+    console.error('Error generating sitemap for articles:', error);
+    return staticRoutes;
+  }
 }
