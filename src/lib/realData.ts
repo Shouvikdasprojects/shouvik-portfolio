@@ -187,6 +187,36 @@ export const youtubeChannels = [
 // 4. Real-time Created Anime & Utility Websites (No GitHub source code buttons allowed!)
 export const projectsList = [
   {
+    title: "ANI Media Online",
+    description: "ANI Media Online (AMO) is a premium, high-performance anime database and discovery platform. It allows users to explore trending anime, watch official trailers, track release schedules in real-time, and manage a personalized cloud-based watchlist.",
+    techStack: ["Next.js", "React 18", "Tailwind CSS", "Supabase", "GraphQL", "REST API"],
+    imageUrl: "/assets/amo-logo.png",
+    demoUrl: "https://ani-media-online.vercel.app",
+    featured: true,
+    details: {
+      tagline: "The Ultimate Database & Cinematic Anime Discovery Platform.",
+      overview: "ANI Media Online was built with the vision of providing anime enthusiasts with a visually stunning, app-like experience directly in their browser. Featuring a cinematic \"Deep Space Neon\" theme and seamless glassmorphism UI, the platform integrates multiple massive anime databases (AniList & Jikan) to deliver real-time data. Beyond just browsing, it empowers users with a robust authentication system to seamlessly save and track their anime journey across all devices without losing any data.",
+      features: [
+        { title: "Cloud Watchlist System", desc: "Secure user authentication allowing users to save, track, and categorize anime (Watching, Completed, Plan to Watch) in their personal library." },
+        { title: "Real-time Release Calendar", desc: "Automatically fetches and converts airing times of new episodes based on the user's local timezone." },
+        { title: "Cinematic UI & Transitions", desc: "Utilizes Framer Motion for buttery smooth page transitions and interactive hover effects, optimized for both desktop and mobile." },
+        { title: "Advanced Data Aggregation", desc: "Combines multiple APIs (GraphQL and REST) to fetch trailers, voice cast, and ratings with blazing fast speed." }
+      ],
+      techStack: {
+        frontend: ["Next.js (App Router)", "React 18", "Framer Motion"],
+        styling: ["Tailwind CSS (v4)", "Glassmorphism UI", "Deep Space Neon theme"],
+        backend: ["Supabase (PostgreSQL)", "Supabase Authentication"],
+        apis: ["GraphQL (AniList API)", "REST API (Jikan/MyAnimeList)"],
+        deployment: ["Vercel"]
+      },
+      achievements: [
+        "API Rate Limit & Performance: Successfully handled strict API rate limits from Jikan by balancing requests between REST and GraphQL endpoints. Implemented Next.js caching and Suspense to ensure instant page loads without overwhelming the external servers.",
+        "Complex Data Hydration: Overcame hydration mismatch issues by effectively separating server-side metadata logic and client-side dynamic states (like Watchlist toggles).",
+        "Cross-Device Fluidity: Built a complex, highly responsive layout with a dedicated Mobile Bottom Navigation system that feels exactly like a native mobile application."
+      ]
+    }
+  },
+  {
     title: "Anime Nation India",
     description: "Anime Nation India is a comprehensive web application designed for anime and manga enthusiasts. It provides real-time updates on trending anime, upcoming seasonal releases, and daily airing schedules. Users can seamlessly search for their favorite shows, read community reviews, and build a personalized watchlist that syncs directly with a cloud database.",
     techStack: ["React.js", "Node.js", "MongoDB", "GraphQL", "REST API", "CSS3"],

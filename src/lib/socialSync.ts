@@ -41,7 +41,7 @@ const FACEBOOK_IDS = {
 async function fetchYouTubeLatestVideos(channelId: string, limit = 1): Promise<any[]> {
   try {
     const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-    const response = await fetch(rssUrl, { cache: 'no-store' });
+    const response = await fetch(rssUrl, { next: { revalidate: 3600 } });
     if (!response.ok) throw new Error("RSS fetch failed");
     const text = await response.text();
     
@@ -152,7 +152,7 @@ async function scrapeYouTubeChannelDetails(handle: string) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'Accept-Language': 'en-US,en;q=0.9'
       },
-      cache: 'no-store'
+      next: { revalidate: 3600 }
     });
     if (!res.ok) return fallback || null;
     const html = await res.text();
@@ -218,7 +218,7 @@ async function fetchInstagramStats(username: string) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'Accept-Language': 'en-US,en;q=0.9'
       },
-      cache: 'no-store'
+      next: { revalidate: 3600 }
     });
 
     if (!res.ok) return fallback || null;
@@ -269,7 +269,7 @@ async function fetchFacebookStats(pageName: string) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'Accept-Language': 'en-US,en;q=0.9'
       },
-      cache: 'no-store'
+      next: { revalidate: 3600 }
     });
 
     if (!res.ok) return fallback || null;
