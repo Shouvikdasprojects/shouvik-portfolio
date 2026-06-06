@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/_next/'],
     },
-    sitemap: 'https://shouvikdas.eu.org/sitemap.xml',
+    sitemap: 'https://shouvikdasportfolio.vercel.app/sitemap.xml',
   };
 }
