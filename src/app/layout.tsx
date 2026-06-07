@@ -20,7 +20,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://shouvikdas.eu.org'),
+  metadataBase: new URL('https://shouvikdasportfolio.qzz.io'),
   title: {
     default: 'Shouvik Das | 3D Portfolio & Content Creator',
     template: '%s | Shouvik Das',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     '3D Portfolio',
     'Next.js'
   ],
-  authors: [{ name: 'Shouvik Das', url: 'https://shouvikdas.eu.org' }],
+  authors: [{ name: 'Shouvik Das', url: 'https://shouvikdasportfolio.qzz.io' }],
   creator: 'Shouvik Das',
   icons: {
     icon: '/favicon.png',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Shouvik Das | 3D Portfolio & Content Creator',
     description: 'Welcome to my official 3D portfolio website. I am Shouvik Das, a Next.js frontend developer and digital content creator specializing in interactive web experiences.',
-    url: 'https://shouvikdas.eu.org',
+    url: 'https://shouvikdasportfolio.qzz.io',
     siteName: 'Shouvik Das',
     locale: 'en_US',
     type: 'website',
@@ -64,10 +64,10 @@ export const metadata: Metadata = {
     images: ['https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&auto=format&fit=crop&q=80'],
   },
   verification: {
-    google: 'Iy2BIme_V9-X_5NU_TMLqzs-PyR0x898Gkvdys1aSwg',
+    google: 'wlSD6-PTK-u0iUrOjISyX4u0xX3PQMMXllSrNZ_vVEs',
   },
   alternates: {
-    canonical: 'https://shouvikdas.eu.org',
+    canonical: 'https://shouvikdasportfolio.qzz.io',
   },
   robots: {
     index: true,
@@ -94,19 +94,19 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://shouvikdas.eu.org/#website",
-        "url": "https://shouvikdas.eu.org/",
+        "@id": "https://shouvikdasportfolio.qzz.io/#website",
+        "url": "https://shouvikdasportfolio.qzz.io/",
         "name": "Shouvik Das",
         "description": "Interactive 3D Personal Portfolio & AI Products Showcase",
         "publisher": {
-          "@id": "https://shouvikdas.eu.org/#person"
+          "@id": "https://shouvikdasportfolio.qzz.io/#person"
         },
         "potentialAction": [
           {
             "@type": "SearchAction",
             "target": {
               "@type": "EntryPoint",
-              "urlTemplate": "https://shouvikdas.eu.org/articles?q={search_term_string}"
+              "urlTemplate": "https://shouvikdasportfolio.qzz.io/articles?q={search_term_string}"
             },
             "query-input": "required name=search_term_string"
           }
@@ -115,9 +115,9 @@ export default function RootLayout({
       },
       {
         "@type": "Person",
-        "@id": "https://shouvikdas.eu.org/#person",
+        "@id": "https://shouvikdasportfolio.qzz.io/#person",
         "name": "Shouvik Das",
-        "image": "https://shouvikdas.eu.org/favicon.ico",
+        "image": "https://shouvikdasportfolio.qzz.io/favicon.ico",
         "description": "Expert Full-Stack Web3D Developer, UI/UX Designer, and SEO Specialist.",
         "sameAs": [
           "https://www.instagram.com/shouvik_das_official",
