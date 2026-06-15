@@ -187,6 +187,39 @@ export const youtubeChannels = [
 // 4. Real-time Created Anime & Utility Websites (No GitHub source code buttons allowed!)
 export const projectsList = [
   {
+    title: "AniSpectra",
+    description: "AniSpectra is a premium, modern web application designed for anime enthusiasts. It serves as a cinematic discovery platform providing real-time updates on trending anime, seasonal releases, news, and official trailers. Users can seamlessly browse an extensive database, read detailed reviews, and build a personalized, cloud-synced watchlist.",
+    techStack: ["Next.js 15", "React 19", "Tailwind CSS v4", "Firebase", "GraphQL", "REST API"],
+    imageUrl: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop&q=80",
+    demoUrl: "https://anispectra.qzz.io",
+    featured: true,
+    details: {
+      tagline: "Cinematic Anime Discovery & Cloud Watchlist Platform.",
+      overview: "AniSpectra is a premium, modern web application designed for anime enthusiasts. It serves as a cinematic discovery platform providing real-time updates on trending anime, seasonal releases, news, and official trailers. Users can seamlessly browse an extensive database, read detailed reviews, and build a personalized, cloud-synced watchlist.",
+      features: [
+        { title: "Dual API Architecture", desc: "Combined REST (Jikan) and GraphQL (AniList) APIs to fetch and render complex, real-time anime metadata, schedules, and reviews efficiently." },
+        { title: "Personalized Cloud Watchlist", desc: "Built a secure backend connection using Firebase, allowing users to authenticate, save, categorize, and manage their favorite anime directly in a cloud database." },
+        { title: "Cinematic UI/UX", desc: "Designed a highly responsive, premium interface featuring dynamic hero sliders, CSS glass-morphism, skeleton loaders, and intelligent color theming supporting both Dark and Light modes." },
+        { title: "Real-Time News Aggregation", desc: "Integrated an automated server-side RSS feed parser to fetch and display the latest anime news and announcements directly from top industry sources." },
+        { title: "Advanced Search & Discovery", desc: "Engineered a highly optimized search functionality and dynamic filtering system to discover anime by genres, airing status, and popularity." },
+        { title: "Secure Authentication", desc: "Implemented a robust user authentication system supporting both traditional Email/Password and Google OAuth login via Firebase Auth." }
+      ],
+      techStack: {
+        frontend: ["Next.js 15 (App Router)", "React 19", "TypeScript"],
+        styling: ["Tailwind CSS v4", "Framer Motion", "Lucide React"],
+        backend: ["Firebase Auth", "Cloud Firestore"],
+        apis: ["Jikan API (REST)", "AniList API (GraphQL)", "YouTube Data API"],
+        deployment: ["Netlify (Hosting & CI/CD)", "Open Graph & Twitter SEO", "Custom Domain"]
+      },
+      achievements: [
+        "Optimized Data Fetching: Solved the strict rate limits of the Jikan API by implementing custom fetch wrappers with intelligent caching (next: { revalidate }) and controlled delays, ensuring a 100% success rate without hitting '429 Too Many Requests' errors.",
+        "Advanced GraphQL Integration: Engineered complex GraphQL queries to the AniList database to fetch dynamic, time-based airing schedules, filtering explicit content, and sorting by real-time global popularity.",
+        "Server-Side Rendering (SSR) & SEO: Utilized Next.js Server Components to pre-render heavy API data on the server. This drastically improved initial page load speed (LCP) and enabled dynamic Open Graph metadata generation for perfect SEO and social sharing scores.",
+        "Complex State Management: Handled multiple asynchronous data states (Trending, Seasonal, Top Airing) and user authentication states simultaneously across dynamic routes without causing UI freezes or infinite re-renders."
+      ]
+    }
+  },
+  {
     title: "ANI Media Online",
     description: "ANI Media Online (AMO) is a premium, high-performance anime database and discovery platform. It allows users to explore trending anime, watch official trailers, track release schedules in real-time, and manage a personalized cloud-based watchlist.",
     techStack: ["Next.js", "React 18", "Tailwind CSS", "Supabase", "GraphQL", "REST API"],
