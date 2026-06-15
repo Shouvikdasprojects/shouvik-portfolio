@@ -191,7 +191,7 @@ export const projectsList = [
     description: "AniSpectra is a premium, modern web application designed for anime enthusiasts. It serves as a cinematic discovery platform providing real-time updates on trending anime, seasonal releases, news, and official trailers. Users can seamlessly browse an extensive database, read detailed reviews, and build a personalized, cloud-synced watchlist.",
     techStack: ["Next.js 15", "React 19", "Tailwind CSS v4", "Firebase", "GraphQL", "REST API"],
     imageUrl: "/assets/anispectra-logo.png",
-    demoUrl: "https://anispectra.qzz.io",
+    demoUrl: "https://anispectra.netlify.app/",
     featured: true,
     details: {
       tagline: "Cinematic Anime Discovery & Cloud Watchlist Platform.",
