@@ -76,7 +76,7 @@ export default async function Portfolio() {
   }
 
   // Custom slice parameters to meet Shouvik's exact home page limitations!
-  const homeProjects = projectsList.filter(p => p.title !== "ANI Media Online").slice(0, 4); // Display exactly 4 projects
+  const homeProjects = projectsList.filter(p => p.title !== "ANI Media Online" && p.title !== "AniSpectra" && p.title !== "SVK Downloader").slice(0, 4); // Display exactly 4 projects
   const homeSocials = dynamicSocials.filter(s => s.name !== "Anime Nation India (Insta)").slice(0, 3);   // Display exactly 3 social accounts
   const homeYoutube = dynamicYoutube.filter(ch => ch.name !== "Shouvik X Anime (YT)" && ch.name !== "Shouvik Senpai (YT)"); // Display exactly 3 YouTube channels
   const homeArticles = allArticles.slice(0, 6);  // Display exactly 6 blog articles

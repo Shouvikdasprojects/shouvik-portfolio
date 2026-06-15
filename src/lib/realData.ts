@@ -190,7 +190,7 @@ export const projectsList = [
     title: "AniSpectra",
     description: "AniSpectra is a premium, modern web application designed for anime enthusiasts. It serves as a cinematic discovery platform providing real-time updates on trending anime, seasonal releases, news, and official trailers. Users can seamlessly browse an extensive database, read detailed reviews, and build a personalized, cloud-synced watchlist.",
     techStack: ["Next.js 15", "React 19", "Tailwind CSS v4", "Firebase", "GraphQL", "REST API"],
-    imageUrl: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop&q=80",
+    imageUrl: "/assets/anispectra-logo.png",
     demoUrl: "https://anispectra.qzz.io",
     featured: true,
     details: {
