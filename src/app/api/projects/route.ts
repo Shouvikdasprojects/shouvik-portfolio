@@ -6,10 +6,9 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const dbProjects = await getProjects();
-    
-    // Fall back to static projectsList if database table is empty to prevent blank page loads!
-    const finalProjects = dbProjects.length > 0 ? dbProjects : projectsList;
+    // Return static projectsList directly so realData.ts changes show up immediately.
+    // The previous logic favored dbProjects, which was hiding local modifications.
+    const finalProjects = projectsList;
     
     return NextResponse.json({ success: true, projects: finalProjects });
   } catch (error: any) {
