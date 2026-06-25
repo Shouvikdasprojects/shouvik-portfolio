@@ -251,33 +251,34 @@ export const projectsList = [
   },
   {
     title: "Anime Nation India",
-    description: "Anime Nation India is a comprehensive web application designed for anime and manga enthusiasts. It provides real-time updates on trending anime, upcoming seasonal releases, and daily airing schedules. Users can seamlessly search for their favorite shows, read community reviews, and build a personalized watchlist that syncs directly with a cloud database.",
-    techStack: ["React.js", "Node.js", "MongoDB", "GraphQL", "REST API", "CSS3"],
+    description: "Anime Nation India is a feature-rich, high-performance web application designed for anime fans and manga readers. It combines extensive media tracking, real-time news aggregation, community discussion boards, and an advanced custom streaming player simulation interface.",
+    techStack: ["Next.js 16", "Tailwind CSS v4", "TypeScript", "Node.js", "MongoDB", "Express.js"],
     imageUrl: "/assets/animenation.jpg",
-    demoUrl: "https://animenationindia.online/", // Real active premium URL
+    demoUrl: "https://www.animenationindia.online",
     featured: true,
     details: {
-      tagline: "Ultimate Anime Tracker, Live Schedule & Cloud Watchlist Platform.",
-      overview: "Anime Nation India is a comprehensive web application designed for anime and manga enthusiasts. It provides real-time updates on trending anime, upcoming seasonal releases, and daily airing schedules. Users can seamlessly search for their favorite shows, read community reviews, and build a personalized watchlist that syncs directly with a cloud database.",
+      tagline: "The Ultimate Cinematic Anime & Manga Database, Tracking, and Discovery Platform.",
+      overview: "Anime Nation India is a feature-rich, high-performance web application designed for anime fans, manga readers, and Otaku communities. Featuring a gorgeous \"Deep Space Cinematic\" dark UI with glowing neon-pink and gold accents, it combines extensive media tracking, real-time news aggregation, community discussion boards, and an advanced custom streaming player simulation interface.",
       features: [
-        { title: "Dual API Integration", desc: "Combined REST (Jikan) and GraphQL (AniList) APIs to render complex, real-time media data efficiently." },
-        { title: "Smart Caching System", desc: "Implemented a robust LocalStorage caching mechanism with timestamp validation to drastically reduce API calls and bypass the '429 Too Many Requests' rate limit." },
-        { title: "Live Debounce Search", desc: "Engineered a highly responsive search bar with a debounce function (600ms) to optimize API requests while users type." },
-        { title: "Personalized Cloud Watchlist", desc: "Built a secure backend connection allowing users to save and manage their favorite anime directly into a MongoDB database." },
-        { title: "Dynamic UI/UX", desc: "Designed a premium, dark-themed UI featuring auto-scrolling hero sliders, CSS glass-morphism, hover-zoom effects, and an interactive daily release grid." },
-        { title: "Seamless Monetization", desc: "Successfully integrated complex ad formats (Native Banners, Popunders, Smartlinks) into React functional components without breaking the app's UI or performance." }
+        { title: "Premium Interactive Watch Page", desc: "Fully custom HTML5 control bar overlay with Play/Pause, 10s Skip, hover-expanding Volume, Fullscreen, and Picture-in-Picture." },
+        { title: "Advanced User Watchlist", desc: "Dynamically updates labels to Reading/Watching and integrates directly into the backend database API to preserve individual watchlist states." },
+        { title: "RSS News Aggregator Portal", desc: "Automatically aggregates the latest anime news, reviews, and announcements from feeds like MyAnimeList and Anime Corner." },
+        { title: "Community Forum Boards", desc: "Dedicated discussion channels for general chat, manga reviews, recommendations, and trending shows." },
+        { title: "Real-Time Debounced Search", desc: "Ultra-fast search filters on browse pages with a 600ms debounce handler, dynamically updating browser query strings." },
+        { title: "Secure SMTP Mail System", desc: "Contact forms routed via Express Nodemailer transport, plus secure account settings for profile management." }
       ],
       techStack: {
-        frontend: ["React.js (Vite)", "React Router DOM"],
-        styling: ["Custom CSS (CSS3 Animations)", "CSS Glassmorphism"],
-        backend: ["Node.js", "Express.js", "MongoDB (Auth & Watchlist)"],
-        apis: ["Jikan API (REST)", "AniList API (GraphQL)"],
-        deployment: ["Vercel (Frontend)", "Adsterra Ad Network", "Open Graph & Twitter SEO"]
+        frontend: ["Next.js 16 (App Router)", "TypeScript"],
+        styling: ["Tailwind CSS v4", "Deep Space Cinematic UI"],
+        backend: ["Node.js", "Express.js", "MongoDB"],
+        apis: ["Jikan API (REST)", "AniList API (GraphQL)", "RSS Feeds"],
+        deployment: ["Vercel", "Custom Domain", "Dynamic SEO"]
       },
       achievements: [
-        "API Rate Limiting: The Jikan API strictly limits requests. I solved this by building a custom fetchJikan wrapper function that introduces controlled delays (await delay(350)) and intelligent caching, ensuring a 100% success rate for data fetching.",
-        "GraphQL Querying: Learned and implemented GraphQL to query the AniList database for specific time-based schedules (Unix timestamps) to show the exact airing anime for 'Today'.",
-        "State Management: Handled multiple complex data states (Trending, Seasonal, Reviews, Dubbed) simultaneously on a single page without causing infinite re-renders."
+        "Interactive Media Player: Engineered a custom video player simulation complete with subtitles, speed controllers, and cinema mode dimming.",
+        "Full Library Interface: Designed a dedicated Manga/Novel browsing tab with responsive horizontal relations sliders for franchise timelines.",
+        "Dynamic SEO & Sitemaps: Implemented Next.js dynamic sitemap.xml and robots.ts generating routes for over 50+ popular pages and news articles on demand.",
+        "Secure Backend Authentication: Built robust SMTP-powered email communications and a secure MongoDB backend for persisting extensive user preferences and library tracking."
       ]
     }
   },
