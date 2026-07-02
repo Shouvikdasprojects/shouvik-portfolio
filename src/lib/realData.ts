@@ -251,33 +251,34 @@ export const projectsList = [
   },
   {
     title: "Anime Nation India",
-    description: "Anime Nation India is a feature-rich, high-performance web application designed for anime fans and manga readers. It combines extensive media tracking, real-time news aggregation, community discussion boards, and an advanced custom streaming player simulation interface.",
-    techStack: ["Next.js 16", "Tailwind CSS v4", "TypeScript", "Node.js", "MongoDB", "Express.js"],
+    description: "Anime Nation India is a cross-platform (Web, Android, iOS) anime & manga ecosystem. Featuring an interactive 3D UI, it combines extensive media tracking, real-time news aggregation, and an advanced custom streaming player simulation interface.",
+    techStack: ["Next.js 16", "Three.js", "Kotlin & Swift", "Node.js", "MongoDB", "Express.js"],
     imageUrl: "/assets/animenation.jpg",
     demoUrl: "https://www.animenationindia.online",
     featured: true,
     details: {
-      tagline: "The Ultimate Cinematic Anime & Manga Database, Tracking, and Discovery Platform.",
-      overview: "Anime Nation India is a feature-rich, high-performance web application designed for anime fans, manga readers, and Otaku communities. Featuring a gorgeous \"Deep Space Cinematic\" dark UI with glowing neon-pink and gold accents, it combines extensive media tracking, real-time news aggregation, community discussion boards, and an advanced custom streaming player simulation interface.",
+      tagline: "The Ultimate Cinematic Anime Database & Cross-Platform Tracking Ecosystem.",
+      overview: "Anime Nation India is a cross-platform (Web, Android, iOS) anime & manga ecosystem. Featuring a gorgeous \"Deep Space Cinematic\" dark UI with interactive 3D elements powered by Three.js, it combines extensive media tracking, real-time news aggregation, community discussion boards, and an advanced custom streaming player simulation interface.",
       features: [
+        { title: "Native Mobile Apps", desc: "Fully functional native Android (Kotlin) and iOS (Swift) companion applications for on-the-go tracking." },
+        { title: "Progressive Web App (PWA)", desc: "Installable directly from the browser with offline caching support for a seamless app-like experience." },
+        { title: "3D Interactive Elements", desc: "Integrated @react-three/fiber for immersive WebGL 3D interface components and fluid Framer Motion animations." },
         { title: "Premium Interactive Watch Page", desc: "Fully custom HTML5 control bar overlay with Play/Pause, 10s Skip, hover-expanding Volume, Fullscreen, and Picture-in-Picture." },
         { title: "Advanced User Watchlist", desc: "Dynamically updates labels to Reading/Watching and integrates directly into the backend database API to preserve individual watchlist states." },
-        { title: "RSS News Aggregator Portal", desc: "Automatically aggregates the latest anime news, reviews, and announcements from feeds like MyAnimeList and Anime Corner." },
-        { title: "Community Forum Boards", desc: "Dedicated discussion channels for general chat, manga reviews, recommendations, and trending shows." },
-        { title: "Real-Time Debounced Search", desc: "Ultra-fast search filters on browse pages with a 600ms debounce handler, dynamically updating browser query strings." },
-        { title: "Secure SMTP Mail System", desc: "Contact forms routed via Express Nodemailer transport, plus secure account settings for profile management." }
+        { title: "Real-Time Debounced Search", desc: "Ultra-fast search filters on browse pages with a 600ms debounce handler, dynamically updating browser query strings." }
       ],
       techStack: {
-        frontend: ["Next.js 16 (App Router)", "TypeScript"],
-        styling: ["Tailwind CSS v4", "Deep Space Cinematic UI"],
+        frontend: ["Next.js 16 (App Router)", "TypeScript", "Three.js (R3F)", "PWA"],
+        mobile: ["Android Studio (Kotlin)", "iOS (Swift / XcodeGen)"],
+        styling: ["Tailwind CSS v4", "Framer Motion", "Deep Space Cinematic UI"],
         backend: ["Node.js", "Express.js", "MongoDB"],
         apis: ["Jikan API (REST)", "AniList API (GraphQL)", "RSS Feeds"],
         deployment: ["Vercel", "Custom Domain", "Dynamic SEO"]
       },
       achievements: [
+        "Cross-Platform Ecosystem: Successfully expanded the web platform into native mobile ecosystems using Kotlin (Android) and Swift (iOS).",
+        "Immersive WebGL UI: Integrated Three.js and React Three Fiber to render interactive 3D components without sacrificing page load performance.",
         "Interactive Media Player: Engineered a custom video player simulation complete with subtitles, speed controllers, and cinema mode dimming.",
-        "Full Library Interface: Designed a dedicated Manga/Novel browsing tab with responsive horizontal relations sliders for franchise timelines.",
-        "Dynamic SEO & Sitemaps: Implemented Next.js dynamic sitemap.xml and robots.ts generating routes for over 50+ popular pages and news articles on demand.",
         "Secure Backend Authentication: Built robust SMTP-powered email communications and a secure MongoDB backend for persisting extensive user preferences and library tracking."
       ]
     }
