@@ -37,8 +37,11 @@ export default function BlogListing({ articles }: BlogListingProps) {
 
   // High performance filtered articles memoization with strict case-insensitive, partial-string matching
   const filteredArticles = useMemo(() => {
+    // 1. Force strict Date sorting to always show newest articles first
+    const sorted = [...articles].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+    
     const clean = searchTerm.toLowerCase().trim();
-    return articles.filter(art => {
+    return sorted.filter(art => {
       const matchesSearch = !clean ||
         art.title.toLowerCase().includes(clean) || 
         art.description.toLowerCase().includes(clean) ||
