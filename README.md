@@ -13,6 +13,8 @@ This website utilizes cutting-edge web design languages and state-of-the-art fra
 *   **Live Indian Standard Time (IST) Digital Clock:** Pegged strictly to the `Asia/Kolkata` (IST) timezone using standard internationalization formatting, equipped with neon pink glow drop-shadows and real-time pulsing status signals.
 *   **Fully Responsive & Fluid Animations:** Staggered revealing heading load-ins, mouse-parallax tilt frames, and premium interactive hover effects powered by **Framer Motion**.
 *   **Functional Resume Download System:** Structured direct-routing links pointing seamlessly to root-level static assets (`/Shouvik_Das_Resume.pdf`) to prompt instant download dialogues.
+*   **AI Auto-Blogging & News Ingestion Engine:** Automated cron pipeline (`/api/cron-news`) powered by **Google Gemini 2.5 Flash** and resilient news sources (NewsAPI on local/developer setups with an automatic **Google News RSS** failover for cloud/Vercel serverless production environments).
+*   **Live Web Search Engine:** Dedicated search router (`/search`) parsing live web queries via `rss-parser` alongside database archives.
 
 ---
 

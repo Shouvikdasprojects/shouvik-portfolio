@@ -15,29 +15,29 @@ export default function TermsPage() {
 
       <section className="relative min-h-screen pt-32 pb-24 overflow-hidden bg-transparent">
         {/* Ambient background styling */}
-        <div className="ambient-glow -top-48 -left-48 bg-[#ff007f]/15 pointer-events-none" />
-        <div className="ambient-glow top-1/2 -right-48 bg-[#8b5cf6]/10 pointer-events-none" />
+        <div className="ambient-glow -top-48 -left-48 bg-primary/15 pointer-events-none" />
+        <div className="ambient-glow top-1/2 -right-48 bg-secondary/10 pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-12 gap-3">
-            <span className="text-xs font-bold text-[#ff007f] font-mono tracking-[0.2em] uppercase animate-pulse">
+            <span className="text-xs font-bold text-primary font-mono tracking-[0.2em] uppercase animate-pulse">
               LEGAL TERMS
             </span>
             <h1 className="text-4xl md:text-5xl font-black text-white leading-tight">
               Terms of <span className="gradient-text-primary">Service</span>
             </h1>
-            <div className="w-16 h-[3px] bg-gradient-to-r from-[#ff007f] to-[#8b5cf6] rounded-full mt-2" />
+            <div className="w-16 h-[3px] bg-gradient-to-r from-primary to-secondary rounded-full mt-2" />
             <span className="text-xs text-gray-500 font-mono flex items-center gap-1.5 mt-2">
-              <Calendar size={12} /> Last Updated: June 1, 2026
+              <Calendar size={12} /> Last Updated: August 15, 2026
             </span>
           </div>
 
           {/* Terms Document */}
-          <GlassCard className="bg-[#0b0814]/65 border-white/5 p-8 md:p-10 text-left leading-relaxed text-gray-300 space-y-6">
+          <GlassCard className="bg-[#0b0814]/65 border-white/5 p-8 md:p-10 text-left leading-relaxed text-gray-300 space-y-6 rounded-2xl">
             <div className="flex items-center gap-2 border-b border-white/5 pb-4 mb-6">
-              <Scale className="text-[#ff007f]" size={24} />
+              <Scale className="text-primary" size={24} />
               <h2 className="text-lg md:text-xl font-bold text-white">Terms of Website Utilization</h2>
             </div>
 

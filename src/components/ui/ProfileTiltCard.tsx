@@ -105,14 +105,14 @@ export default function ProfileTiltCard({ avatarUrl, name }: ProfileTiltCardProp
 
         {/* Ambient floating 3D neon particles inside the frame */}
         <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden mix-blend-screen opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-[#ff007f] blur-[1px] animate-pulse" style={{ animationDelay: '0.2s' }} />
-          <div className="absolute top-1/2 right-1/4 w-3.5 h-3.5 rounded-full bg-[#8b5cf6] blur-[2px] animate-pulse" style={{ animationDelay: '0.6s' }} />
-          <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 rounded-full bg-[#0ea5e9] blur-[0.5px] animate-pulse" style={{ animationDelay: '0s' }} />
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-primary blur-[1px] animate-pulse" style={{ animationDelay: '0.2s' }} />
+          <div className="absolute top-1/2 right-1/4 w-3.5 h-3.5 rounded-full bg-secondary blur-[2px] animate-pulse" style={{ animationDelay: '0.6s' }} />
+          <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 rounded-full bg-accent blur-[0.5px] animate-pulse" style={{ animationDelay: '0s' }} />
         </div>
       </div>
 
       {/* Under-card shadow glow that dynamically pops up on hover */}
-      <div className="absolute -inset-2 bg-gradient-to-r from-[#ff007f]/30 to-[#8b5cf6]/30 rounded-2xl filter blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500 pointer-events-none z-[-1]" />
+      <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-2xl filter blur-xl opacity-0 group-hover:opacity-40 transition-all duration-500 pointer-events-none z-[-1]" />
     </motion.div>
   );
 }

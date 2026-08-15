@@ -64,7 +64,7 @@ export default function ArticleSharePanel({ slug, title }: ArticleSharePanelProp
         {/* Twitter / X */}
         <button
           onClick={shareToTwitter}
-          className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-[#ff007f] hover:bg-[#ff007f]/10 text-gray-400 hover:text-white flex items-center justify-center transition-all cursor-pointer group"
+          className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-primary hover:bg-primary/10 text-gray-400 hover:text-white flex items-center justify-center transition-all cursor-pointer group"
           title="Share on X / Twitter"
         >
           <svg className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@ export default function ArticleSharePanel({ slug, title }: ArticleSharePanelProp
         {/* Facebook */}
         <button
           onClick={shareToFacebook}
-          className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-[#ff007f] hover:bg-[#ff007f]/10 text-gray-400 hover:text-white flex items-center justify-center transition-all cursor-pointer group"
+          className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-primary hover:bg-primary/10 text-gray-400 hover:text-white flex items-center justify-center transition-all cursor-pointer group"
           title="Share on Facebook"
         >
           <svg className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
@@ -86,7 +86,7 @@ export default function ArticleSharePanel({ slug, title }: ArticleSharePanelProp
         {/* WhatsApp */}
         <button
           onClick={shareToWhatsApp}
-          className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-[#ff007f] hover:bg-[#ff007f]/10 text-gray-400 hover:text-white flex items-center justify-center transition-all cursor-pointer group"
+          className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-primary hover:bg-primary/10 text-gray-400 hover:text-white flex items-center justify-center transition-all cursor-pointer group"
           title="Share on WhatsApp"
         >
           <MessageSquare size={16} className="group-hover:scale-110 transition-transform" />
@@ -96,7 +96,7 @@ export default function ArticleSharePanel({ slug, title }: ArticleSharePanelProp
         <button
           onClick={handleCopyLink}
           className={`w-10 h-10 rounded-full bg-white/5 border transition-all cursor-pointer group flex items-center justify-center ${
-            copied ? 'border-green-500 bg-green-500/10 text-green-400' : 'border-white/10 hover:border-[#ff007f] hover:bg-[#ff007f]/10 text-gray-400 hover:text-white'
+            copied ? 'border-green-500 bg-green-500/10 text-green-400' : 'border-white/10 hover:border-primary hover:bg-primary/10 text-gray-400 hover:text-white'
           }`}
           title="Copy Article Link"
         >
@@ -113,7 +113,7 @@ export default function ArticleSharePanel({ slug, title }: ArticleSharePanelProp
       {/* 2. Mobile Floating Bottom Share Dock */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center gap-4 bg-[#0a0712]/90 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full z-40 xl:hidden shadow-[0_0_30px_rgba(255,0,127,0.15)] animate-fade-in">
         <span className="text-[10px] font-bold font-mono text-gray-400 mr-2 flex items-center gap-1">
-          <Share2 size={12} className="text-[#ff007f] animate-pulse" /> Share:
+          <Share2 size={12} className="text-primary animate-pulse" /> Share:
         </span>
 
         {/* Twitter / X */}

@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { getProjects } from '@/lib/db';
 import { projectsList } from '@/lib/realData';
 
 export const dynamic = 'force-dynamic';

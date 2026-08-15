@@ -67,14 +67,14 @@ export default async function SocialsPage() {
 
       <section className="relative min-h-screen pt-32 pb-24 overflow-hidden bg-transparent">
         {/* Colorful ambient background blobs */}
-        <div className="ambient-glow -top-48 -left-48 bg-[#ff007f]/15" />
-        <div className="ambient-glow top-1/2 -right-48 bg-[#8b5cf6]/10" />
+        <div className="ambient-glow -top-48 -left-48 bg-primary/15 pointer-events-none" />
+        <div className="ambient-glow top-1/2 -right-48 bg-secondary/10 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-16 gap-3">
-            <span className="text-xs font-bold text-[#ff007f] font-mono tracking-widest uppercase animate-pulse">
+            <span className="text-xs font-bold text-primary font-mono tracking-widest uppercase animate-pulse">
               LET'S STAY CONNECTED
             </span>
             <h1 className="text-4xl md:text-5xl font-black text-white leading-tight">
@@ -89,12 +89,12 @@ export default async function SocialsPage() {
               href={personalInfo.heylink}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#ff007f] to-[#8b5cf6] text-white font-bold text-xs tracking-wider flex items-center gap-1.5 shadow-[0_0_20px_rgba(255,0,127,0.45)] cursor-pointer hover:shadow-[0_0_30px_rgba(255,0,127,0.7)] transition-all"
+              className="mt-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold text-xs tracking-wider flex items-center gap-1.5 shadow-[0_0_20px_rgba(255,0,127,0.45)] cursor-pointer hover:shadow-[0_0_30px_rgba(255,0,127,0.7)] transition-all"
             >
               EXPLORE MY LINKTREE (HEYLINK) <Link2 size={14} />
             </a>
 
-            <div className="w-20 h-[3px] bg-gradient-to-r from-[#ff007f] to-[#8b5cf6] rounded-full mt-6" />
+            <div className="w-20 h-[3px] bg-gradient-to-r from-primary to-secondary rounded-full mt-6" />
           </div>
 
           {/* Social Platform Divisions */}
@@ -108,7 +108,7 @@ export default async function SocialsPage() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 {filteredYoutube.map((channel) => (
-                  <GlassCard key={channel.name} className="flex flex-col bg-[#0b0814]/40 border-white/5 relative group hover:scale-[1.02] transition-all p-4">
+                  <GlassCard key={channel.name} className="flex flex-col bg-[#0b0814]/40 border-white/5 relative group hover:scale-[1.02] transition-all p-4 rounded-2xl">
                     {/* Platform Badge */}
                     <div className="absolute top-3 right-3 bg-red-600/90 text-white text-[8px] font-bold font-mono px-2 py-0.5 rounded uppercase tracking-wider shadow-md">
                       YouTube
@@ -137,7 +137,7 @@ export default async function SocialsPage() {
                         href={channel.url || "#"} 
                         target="_blank" 
                         rel="noreferrer"
-                        className="w-full mt-2 py-2 text-center text-[10px] font-bold bg-red-600 hover:bg-red-700 text-white rounded-lg transition-all flex items-center justify-center gap-1 shadow-lg cursor-pointer"
+                        className="w-full mt-2 py-2 text-center text-[10px] font-bold bg-red-600 hover:bg-red-700 text-white rounded-xl transition-all flex items-center justify-center gap-1 shadow-lg cursor-pointer"
                       >
                         Watch Channel <ExternalLink size={10} />
                       </a>
@@ -150,7 +150,7 @@ export default async function SocialsPage() {
             {/* 2. Social Media Platforms Portfolio */}
             <div className="flex flex-col gap-6">
               <h2 className="text-xl md:text-2xl font-black text-white flex items-center gap-2 border-b border-white/5 pb-3">
-                <Sparkles size={20} className="text-[#ff007f] inline-block" /> Social Media Platforms Portfolio
+                <Sparkles size={20} className="text-primary inline-block animate-pulse" /> Social Media Platforms Portfolio
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -160,7 +160,7 @@ export default async function SocialsPage() {
                   const isTwitterX = social.type === 'Twitter/X';
 
                   return (
-                    <GlassCard key={social.name} className="flex flex-col bg-[#0b0814]/40 border-white/5 p-6 hover:scale-[1.01] transition-transform relative group">
+                    <GlassCard key={social.name} className="flex flex-col bg-[#0b0814]/40 border-white/5 p-6 hover:scale-[1.01] transition-transform relative group rounded-2xl">
                       
                       {/* Platform Logo Badge */}
                       <div className="absolute top-4 right-4 text-white text-[8px] font-bold font-mono px-2 py-0.5 rounded uppercase tracking-wider shadow-md">
@@ -215,7 +215,7 @@ export default async function SocialsPage() {
                           href={social.url || "#"} 
                           target="_blank" 
                           rel="noreferrer"
-                          className={`py-1.5 px-4 text-center text-[10px] font-bold rounded transition-all cursor-pointer text-white ${
+                          className={`py-1.5 px-4 text-center text-[10px] font-bold rounded-xl transition-all cursor-pointer text-white ${
                             isInstagram ? 'bg-gradient-to-r from-orange-500/20 to-pink-600/20 hover:from-orange-500 hover:to-pink-600' :
                             isFacebook ? 'bg-blue-600/20 hover:bg-blue-600' :
                             'bg-neutral-800 hover:bg-neutral-900'

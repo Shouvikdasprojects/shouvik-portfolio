@@ -210,7 +210,7 @@ export default function BlogListing({ articles }: BlogListingProps) {
             </p>
 
             {isSubscribed ? (
-              <div className="p-4 bg-primary/10 border border-primary/20 rounded-lg text-center">
+              <div className="p-4 bg-primary/10 border border-primary/20 rounded-2xl text-center">
                 <span className="text-xs font-mono font-bold text-primary block">✓ SUCCESSFUL SUBSCRIPTION!</span>
                 <p className="text-[10px] text-gray-400 mt-1">You will now receive automatic release alerts.</p>
               </div>
@@ -221,12 +221,12 @@ export default function BlogListing({ articles }: BlogListingProps) {
                   value={emailSub}
                   onChange={(e) => setEmailSub(e.target.value)}
                   placeholder="Enter your email"
-                  className="px-4 py-3 text-xs glass-input focus:border-primary"
+                  className="px-4 py-3 text-xs glass-input focus:border-primary rounded-xl"
                   required
                 />
                 <button
                   type="submit"
-                  className="w-full py-3 text-xs font-bold font-mono tracking-wider bg-gradient-to-r from-primary to-secondary text-white rounded-lg hover:opacity-95 transition-opacity flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-3 text-xs font-bold font-mono tracking-wider bg-gradient-to-r from-primary to-secondary text-white rounded-xl hover:opacity-95 transition-opacity flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <Mail size={12} /> SUBSCRIBE NOW
                 </button>
@@ -235,7 +235,7 @@ export default function BlogListing({ articles }: BlogListingProps) {
           </GlassCard>
 
           {/* B. News Feed Metrics Panel */}
-          <GlassCard className="bg-[#0b0814]/50 border-white/5">
+          <GlassCard className="bg-[#0b0814]/50 border-white/5 rounded-2xl">
             <h3 className="text-sm font-mono font-bold text-gray-300 uppercase tracking-widest mb-4">
               Newsfeed Statistics
             </h3>
@@ -247,7 +247,7 @@ export default function BlogListing({ articles }: BlogListingProps) {
               </div>
               <div className="flex justify-between items-center border-b border-white/5 pb-2">
                 <span className="text-gray-500">Engine Source</span>
-                <span className="text-primary font-bold">NewsAPI + Gemini AI</span>
+                <span className="text-primary font-bold">NewsAPI + Google RSS + Gemini AI</span>
               </div>
               <div className="flex justify-between items-center border-b border-white/5 pb-2">
                 <span className="text-gray-500">Refresh Frequency</span>

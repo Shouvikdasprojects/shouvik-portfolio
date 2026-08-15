@@ -125,7 +125,7 @@ export default function RootLayout({
           "https://github.com"
         ],
         "jobTitle": "Full-Stack Web3D Developer",
-        "email": "contact@shouvikdas.eu.org",
+        "email": "shouvikdaswork@gmail.com",
         "knowsAbout": [
           "Three.js",
           "React Three Fiber",

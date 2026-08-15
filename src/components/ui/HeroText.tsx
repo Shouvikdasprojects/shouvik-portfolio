@@ -59,9 +59,9 @@ export default function HeroText({ name, bio }: HeroTextProps) {
       <div className="flex flex-wrap items-center gap-4 relative z-10">
         <motion.div 
           variants={badgeVariants}
-          className="px-3.5 py-1.5 rounded-full bg-[#ff007f]/10 border border-[#ff007f]/25 text-[10px] sm:text-xs font-mono font-bold tracking-[0.2em] text-[#ff007f] uppercase shadow-[0_0_15px_rgba(255,0,127,0.15)] flex items-center gap-1.5"
+          className="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-[10px] sm:text-xs font-mono font-bold tracking-[0.2em] text-primary uppercase shadow-[0_0_15px_rgba(255,0,127,0.15)] flex items-center gap-1.5"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#ff007f] animate-ping" />
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
           🌟 WELCOME TO MY WORLD
         </motion.div>
         
