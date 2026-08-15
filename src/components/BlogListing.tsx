@@ -133,12 +133,52 @@ export default function BlogListing({ articles }: BlogListingProps) {
                 </p>
               </motion.div>
             ) : (
-              <div className="flex flex-col gap-12">
+              <div className="flex flex-col gap-8">
+
+                {/* Featured Hero Article — first and newest */}
+                {currentPage === 1 && paginatedArticles[0] && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="relative rounded-2xl overflow-hidden border border-white/8 group cursor-pointer"
+                  >
+                    <div className="relative h-64 md:h-72 w-full bg-slate-900">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={paginatedArticles[0].image}
+                        alt={paginatedArticles[0].title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#040209] via-[#040209]/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#040209]/60 to-transparent" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="bg-primary text-white font-mono text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                          {paginatedArticles[0].category}
+                        </span>
+                        <span className="badge-new">FEATURED</span>
+                      </div>
+                      <a href={`/articles/${paginatedArticles[0].slug}`}>
+                        <h2 className="text-xl md:text-2xl font-black text-white hover:text-primary transition-colors leading-snug mb-2 line-clamp-2">
+                          {paginatedArticles[0].title}
+                        </h2>
+                      </a>
+                      <p className="text-gray-300 text-sm line-clamp-2 mb-4 max-w-2xl">{paginatedArticles[0].description}</p>
+                      <div className="flex items-center gap-4 text-[10px] font-mono text-gray-400">
+                        <span>via {paginatedArticles[0].source}</span>
+                        <span>•</span>
+                        <span>{new Date(paginatedArticles[0].publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
                 <motion.div 
                   layout
                   className="grid grid-cols-1 sm:grid-cols-2 gap-8"
                 >
-                  {paginatedArticles.map((art) => (
+                  {paginatedArticles.slice(currentPage === 1 ? 1 : 0).map((art) => (
                     <motion.div
                       key={art.slug}
                       layout
@@ -151,6 +191,7 @@ export default function BlogListing({ articles }: BlogListingProps) {
                     </motion.div>
                   ))}
                 </motion.div>
+
 
                 {/* Premium Glassmorphism Pagination Controls */}
                 {totalPages > 1 && (

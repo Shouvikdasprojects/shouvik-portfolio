@@ -10,6 +10,18 @@ interface ArticleCardProps {
   article: Article;
 }
 
+// Estimate reading time from content length
+function getReadingTime(content: string): string {
+  const words = content.replace(/<[^>]+>/g, '').split(/\s+/).length;
+  const minutes = Math.max(1, Math.round(words / 200));
+  return `${minutes} min read`;
+}
+
+// Check if article was published within last 24 hours
+function isNew(publishedAt: string): boolean {
+  return Date.now() - new Date(publishedAt).getTime() < 24 * 60 * 60 * 1000;
+}
+
 export default function ArticleCard({ article }: ArticleCardProps) {
   const [likes, setLikes] = useState(article.likes);
   const [isLiked, setIsLiked] = useState(false);
@@ -96,15 +108,25 @@ export default function ArticleCard({ article }: ArticleCardProps) {
           alt={article.title} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
         />
-        <div className="absolute top-4 left-4 bg-primary/95 text-white font-mono text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-lg">
-          {article.category}
+        <div className="absolute top-4 left-4 flex items-center gap-2">
+          <div className="bg-primary/95 text-white font-mono text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-lg">
+            {article.category}
+          </div>
+          {isNew(article.publishedAt) && (
+            <span className="badge-new">NEW</span>
+          )}
         </div>
-        <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-[9px] text-gray-300 font-mono px-2.5 py-1 rounded">
-          {new Date(article.publishedAt).toLocaleDateString('en-US', { 
-            month: 'short', 
-            day: 'numeric',
-            year: 'numeric'
-          })}
+        <div className="absolute bottom-4 right-4 flex items-center gap-2">
+          <span className="bg-black/60 backdrop-blur-md text-[9px] text-gray-300 font-mono px-2 py-1 rounded">
+            {getReadingTime(article.content)}
+          </span>
+          <span className="bg-black/60 backdrop-blur-md text-[9px] text-gray-300 font-mono px-2.5 py-1 rounded">
+            {new Date(article.publishedAt).toLocaleDateString('en-US', { 
+              month: 'short', 
+              day: 'numeric',
+              year: 'numeric'
+            })}
+          </span>
         </div>
       </div>
 

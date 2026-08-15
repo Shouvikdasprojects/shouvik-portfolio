@@ -36,7 +36,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled 
-            ? 'bg-[#06040d]/70 backdrop-blur-xl border-b border-white/5 py-4' 
+            ? 'bg-[#040209]/92 backdrop-blur-[32px] border-b border-white/6 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.5)]' 
             : 'bg-transparent py-6'
         }`}
       >
@@ -65,7 +65,6 @@ export default function Navbar() {
                   }`}
                 >
                   {link.name}
-                  {/* Glowing active bar animated via framer-motion */}
                   {isActive ? (
                     <motion.span 
                       layoutId="activeNavUnderline"
@@ -79,19 +78,19 @@ export default function Navbar() {
               );
             })}
             
-            {/* Glowing neon pink "Hire Me" button */}
+            {/* Hire Me CTA */}
             <Link 
               href="/contact"
-              className="px-6 py-2.5 rounded-xl border border-primary/40 hover:border-primary bg-primary/10 hover:bg-primary text-white hover:text-white font-bold text-xs tracking-wider transition-all duration-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,0,127,0.35)] hover:shadow-[0_0_25px_rgba(255,0,127,0.6)] cursor-pointer"
+              className="px-6 py-2.5 rounded-xl border border-primary/40 hover:border-primary bg-primary/10 hover:bg-primary text-white hover:text-white font-bold text-xs tracking-wider transition-all duration-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,0,127,0.35)] hover:shadow-[0_0_25px_rgba(255,0,127,0.6)] cursor-pointer neon-border"
             >
               HIRE ME <ArrowUpRight size={14} />
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle button */}
+          {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-300 hover:text-white p-2"
+            className="md:hidden text-gray-300 hover:text-white p-2 transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

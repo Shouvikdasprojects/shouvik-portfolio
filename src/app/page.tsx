@@ -87,20 +87,19 @@ export default async function Portfolio() {
       <Navbar />
       
       {/* 1. HERO SECTION */}
-      <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 pb-16 bg-transparent">
-        {/* Colorful ambient glowing blobs */}
+      <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden pt-28 pb-8 bg-transparent">
+        {/* Ambient glows */}
         <div className="ambient-glow -top-48 -left-48 bg-primary/10 pointer-events-none" />
         <div className="ambient-glow top-1/2 -right-48 bg-secondary/10 pointer-events-none" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-6 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left Column: Welcome, Title, Bio, Social & Skill Grids */}
+            {/* Left Column */}
             <div className="lg:col-span-7 flex flex-col gap-6 text-left relative z-10">
-              {/* Premium Staggered Text Reveal Animation */}
               <HeroText name={personalInfo.name} bio={personalInfo.bio} />
 
-              {/* Parallax Magnetic Action CTAs */}
+              {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4 mt-2 relative z-10">
                 <Magnetic>
                   <GlowButton 
@@ -117,91 +116,56 @@ export default async function Portfolio() {
                     href="/projects"
                     className="px-6 py-3.5 rounded-full border border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary/10 text-white font-bold text-xs tracking-wider transition-all flex items-center gap-1.5 group cursor-pointer shadow-[0_0_15px_rgba(255,0,127,0.1)]"
                   >
-                    Go to My Projects <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                    See My Projects <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                 </Magnetic>
               </div>
 
-              {/* Lower split grids: FIND WITH ME and BEST SKILL ON */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 border-t border-white/5 pt-8 mt-4 relative z-10">
-                
-                {/* A. FIND WITH ME Grid */}
-                <div className="flex flex-col gap-3">
-                  <span className="text-[10px] font-bold font-mono tracking-widest text-gray-500 uppercase">
-                    FIND WITH ME
-                  </span>
-                  <div className="flex gap-3">
-                    <a href="https://www.facebook.com/share/1EWixcZYDr/" target="_blank" rel="noreferrer" className="skill-badge-btn" aria-label="Facebook">
-                      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-                      </svg>
-                    </a>
-                    <a href="https://x.com/shouvikdas155" target="_blank" rel="noreferrer" className="skill-badge-btn" aria-label="Twitter/X">
-                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                      </svg>
-                    </a>
-                    <a href="https://www.instagram.com/shouvik_das_official" target="_blank" rel="noreferrer" className="skill-badge-btn" aria-label="Instagram">
-                      <svg className="w-5 h-5 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                {/* B. BEST SKILL ON Grid */}
-                <div className="flex flex-col gap-3">
-                  <span className="text-[10px] font-bold font-mono tracking-widest text-gray-500 uppercase">
-                    BEST SKILL ON
-                  </span>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src={personalInfo.avatarUrl} 
-                    alt={personalInfo.name} 
-                    className="w-full h-full object-cover" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+              {/* Social quick-links */}
+              <div className="flex flex-col gap-2 border-t border-white/5 pt-6 mt-2 relative z-10">
+                <span className="text-[10px] font-bold font-mono tracking-widest text-gray-500 uppercase">FIND ME ON</span>
+                <div className="flex gap-3">
+                  <a href="https://www.facebook.com/share/1EWixcZYDr/" target="_blank" rel="noreferrer" className="skill-badge-btn" aria-label="Facebook">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                  </a>
+                  <a href="https://x.com/shouvikdas155" target="_blank" rel="noreferrer" className="skill-badge-btn" aria-label="Twitter/X">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </a>
+                  <a href="https://www.instagram.com/shouvik_das_official" target="_blank" rel="noreferrer" className="skill-badge-btn" aria-label="Instagram">
+                    <svg className="w-5 h-5 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                  </a>
+                  <a href={personalInfo.heylink} target="_blank" rel="noreferrer" className="skill-badge-btn" aria-label="HeyLink">
+                    <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V5.8H7c-3.42 0-6.2 2.78-6.2 6.2s2.78 6.2 6.2 6.2h4v-3.1H7c-1.71 0-3.1-1.39-3.1-3.1zM8.9 13.6h6.2v-3.1H8.9v3.1zm9.3-7.8h-4v3.1h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4v3.1h4c3.42 0 6.2-2.78 6.2-6.2s-2.78-6.2-6.2-6.2z"/></svg>
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Who I Am Description & Skills */}
-            <div className="lg:col-span-7 flex flex-col gap-6 order-1 lg:order-2 text-left">
-              <span className="text-xs font-bold text-primary font-mono uppercase tracking-widest animate-pulse">ABOUT MYSELF</span>
-              <h2 className="text-3xl md:text-5xl font-black text-white leading-none">
-                Who <span className="gradient-text-primary">I Am?</span>
-              </h2>
-              <div className="w-20 h-[3px] bg-gradient-to-r from-primary to-secondary rounded-full mt-1" />
-              
-              <div className="flex flex-col gap-4 text-gray-400 text-sm md:text-base leading-relaxed">
-                <p>
-                  I am a passionate front-end engineer, visual designer, and Web3D developer based in India, with a strong focus on immersive, hardware-accelerated user interfaces. I love building interfaces that feel responsive, organic, and physically alive.
-                </p>
-                <p>
-                  Outside of coding, I have a deep passion for **traveling**, **creating high-quality anime videos and edits**, and exploring the world. I enjoy **photography & videography**, as well as high-end **video editing** and **YouTube thumbnail designing**. I'm also a major foodie who loves tasting new cuisines!
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-4 mt-2">
-                <GlowButton 
-                  href={personalInfo.resumeUrl} 
-                  download="Shouvik_Das_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Download size={16} /> DOWNLOAD RESUME
-                </GlowButton>
-                <Link 
-                  href="/about" 
-                  className="px-6 py-3.5 rounded-xl border border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary/10 text-white font-bold text-xs tracking-wider transition-all flex items-center gap-1.5 group cursor-pointer shadow-sm"
-                >
-                  READ MORE ABOUT ME <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-              </div>
+            {/* Right Column: Profile Card */}
+            <div className="lg:col-span-5 order-first lg:order-last flex items-center justify-center">
+              <ProfileTiltCard avatarUrl={personalInfo.avatarUrl} name={personalInfo.name} />
             </div>
+          </div>
+        </div>
 
+        {/* Skills Marquee Strip */}
+        <div className="absolute bottom-0 left-0 right-0 py-4 border-t border-white/5 bg-[#040209]/60 backdrop-blur-sm z-20">
+          <div className="skills-marquee-wrap">
+            <div className="skills-marquee-track">
+              {[
+                '⚡ UI/UX Design', '🌐 Web3D Development', '🎌 Anime Content Creator',
+                '📸 Photography', '🎬 Video Editing', '🖼️ Thumbnail Design', '✈️ Travel Vlogger',
+                '⚡ UI/UX Design', '🌐 Web3D Development', '🎌 Anime Content Creator',
+                '📸 Photography', '🎬 Video Editing', '🖼️ Thumbnail Design', '✈️ Travel Vlogger',
+              ].map((skill, i) => (
+                <span
+                  key={i}
+                  className="px-6 py-1 text-xs font-mono font-bold text-gray-400 border-r border-white/5 whitespace-nowrap hover:text-primary transition-colors"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -15,14 +15,15 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* Scroll to Top - elegant placement */}
+        {/* Rocket Scroll to Top */}
         <div className="absolute top-0 right-6 -translate-y-1/2">
           <button
             onClick={scrollToTop}
-            className="w-10 h-10 rounded-full border border-white/10 hover:border-primary/50 bg-[#06040d] hover:bg-primary/10 text-gray-400 hover:text-white flex items-center justify-center transition-all group cursor-pointer shadow-lg"
+            className="rocket-btn w-12 h-12 rounded-full border border-primary/30 hover:border-primary bg-[#06040d] hover:bg-primary/15 text-gray-300 hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-[0_0_15px_rgba(255,0,127,0.15)] hover:shadow-[0_0_25px_rgba(255,0,127,0.4)] group neon-border"
             aria-label="Scroll to top"
+            title="Back to top"
           >
-            <ArrowUp size={16} className="group-hover:-translate-y-0.5 transition-transform" />
+            <span className="rocket-icon text-lg select-none">🚀</span>
           </button>
         </div>
 

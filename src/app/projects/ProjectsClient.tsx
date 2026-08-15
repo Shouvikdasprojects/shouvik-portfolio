@@ -75,51 +75,69 @@ export default function ProjectsClient() {
           {/* Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, idx) => (
-              <TiltCard key={idx} className="flex flex-col h-full bg-[#0b0814]/40 border-white/5 p-6 rounded-2xl">
+              <TiltCard key={idx} className="flex flex-col h-full bg-[#0b0814]/40 border-white/5 p-6 rounded-2xl group">
                 <div className="relative w-full h-48 rounded-xl overflow-hidden mb-6 bg-slate-900 border border-white/5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src={project.imageUrl} 
                     alt={project.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                   />
+                  {/* Dark scrim on hover */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 pointer-events-none" />
+
+                  {/* Neon Featured Ribbon */}
                   {project.featured && (
-                    <div className="absolute top-3 left-3 bg-gradient-to-r from-primary to-secondary text-white font-mono text-[9px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow-lg">
-                      Featured Build
-                    </div>
+                    <div className="neon-ribbon">★ FEATURED</div>
                   )}
+
+                  {/* Top-right: External link quick launch */}
+                  <a
+                    href={project.demoUrl || '#'}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/60 backdrop-blur border border-white/10 hover:border-primary hover:bg-primary/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    title="Open live app"
+                  >
+                    <ExternalLink size={11} className="text-white" />
+                  </a>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2 group-hover:text-primary transition-colors duration-300">
                   {project.title}
                   {project.title.toLowerCase().includes('anime') && <Sparkles size={14} className="text-primary" />}
                 </h3>
                 
-                <p className="text-gray-400 text-xs md:text-sm mb-6 leading-relaxed flex-grow">
+                <p className="text-gray-400 text-xs md:text-sm mb-5 leading-relaxed flex-grow">
                   {project.description}
                 </p>
 
-                {/* Tech Stack badges */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {project.techStack.map((tech) => (
-                    <span key={tech} className="text-[10px] font-semibold font-mono bg-white/5 text-gray-300 border border-white/10 px-2 py-0.5 rounded">
+                {/* Animated tech stack badges — fan out on hover */}
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {project.techStack.map((tech, tIdx) => (
+                    <span 
+                      key={tech} 
+                      className="text-[10px] font-semibold font-mono bg-white/5 text-gray-400 border border-white/8 px-2 py-0.5 rounded hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all duration-200 cursor-default"
+                      style={{ transitionDelay: `${tIdx * 20}ms` }}
+                    >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Direct live demo button with details option if details exists */}
+                {/* Action row */}
                 <div className="flex gap-3 border-t border-white/5 pt-4 mt-auto">
                   {project.details ? (
                     <>
                       <button 
                         onClick={() => setSelectedProject(project)}
-                        className="flex-grow py-2.5 text-center text-xs font-bold border border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary/10 text-white rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-[0_0_10px_rgba(255,0,127,0.1)] hover:shadow-[0_0_15px_rgba(255,0,127,0.2)]"
+                        className="flex-grow py-2.5 text-center text-xs font-bold border border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary/15 text-white rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-[0_0_10px_rgba(255,0,127,0.1)] hover:shadow-[0_0_18px_rgba(255,0,127,0.25)]"
                       >
                         View Full Specs <Sparkles size={12} className="text-primary animate-pulse" />
                       </button>
                       <a 
-                        href={project.demoUrl || "#"} 
+                        href={project.demoUrl || '#'} 
                         target="_blank" 
                         rel="noreferrer" 
                         className="px-4 py-2.5 text-center text-xs font-bold bg-primary hover:bg-primary/90 text-white rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(255,0,127,0.3)] cursor-pointer"
@@ -130,7 +148,7 @@ export default function ProjectsClient() {
                     </>
                   ) : (
                     <a 
-                      href={project.demoUrl || "#"} 
+                      href={project.demoUrl || '#'} 
                       target="_blank" 
                       rel="noreferrer" 
                       className="w-full py-2.5 text-center text-xs font-bold bg-primary hover:bg-primary/90 text-white rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(255,0,127,0.3)] cursor-pointer"

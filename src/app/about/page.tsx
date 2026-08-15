@@ -1,3 +1,4 @@
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import GlassCard from '@/components/ui/GlassCard';
@@ -5,7 +6,7 @@ import GlowButton from '@/components/ui/GlowButton';
 import SafeImage from '@/components/ui/SafeImage';
 import { personalInfo } from '@/lib/realData';
 import SocialDirectoryServer from './SocialDirectoryServer';
-import { Mail, Compass, Star, Heart, Camera, Film, Palette, MapPin, Link2 } from 'lucide-react';
+import { Mail, Compass, Star, Camera, Film, Palette, MapPin } from 'lucide-react';
 import { Suspense } from 'react';
 import TiltCard from '@/components/ui/AboutTiltCardWrapper';
 
@@ -94,40 +95,70 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              {/* Hobbies / Passions Row */}
-              <div className="flex flex-col gap-3">
+              {/* Hobbies / Passions Row — animated icon cards */}
+              <div className="flex flex-col gap-4">
                 <span className="text-xs font-mono font-bold text-gray-500 uppercase tracking-wider">THINGS I ABSOLUTELY LOVE:</span>
-                <div className="flex flex-wrap gap-2.5">
-                  {personalInfo.aboutDetails.hobbies.map((hobby, idx) => (
-                    <div 
-                      key={idx} 
-                      className="px-4 py-2 rounded-full border border-white/5 bg-white/5 hover:border-primary/40 hover:bg-primary/5 text-gray-200 text-xs font-semibold flex items-center gap-1.5 transition-all"
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {[
+                    { emoji: '✈️', label: 'Traveling', desc: 'Scenic spots & countries', color: 'from-blue-500/10 to-cyan-500/10 border-blue-500/20' },
+                    { emoji: '🎌', label: 'Anime', desc: 'Content & edits creator', color: 'from-primary/10 to-secondary/10 border-primary/20' },
+                    { emoji: '🍜', label: 'Foodie', desc: 'Taste explorer', color: 'from-orange-500/10 to-amber-500/10 border-orange-500/20' },
+                    { emoji: '🎬', label: 'Content', desc: 'Video & photography', color: 'from-green-500/10 to-emerald-500/10 border-green-500/20' },
+                  ].map((hobby) => (
+                    <div
+                      key={hobby.label}
+                      className={`p-3 rounded-xl bg-gradient-to-br ${hobby.color} border hover:scale-105 transition-transform duration-200 text-center flex flex-col items-center gap-1`}
                     >
-                      <Heart size={12} className="text-primary" /> {hobby}
+                      <span className="text-2xl">{hobby.emoji}</span>
+                      <span className="text-white text-xs font-bold font-mono">{hobby.label}</span>
+                      <span className="text-gray-400 text-[9px] leading-tight">{hobby.desc}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Skills Row */}
-              <div className="flex flex-col gap-3">
+              {/* Skills with animated progress bars */}
+              <div className="flex flex-col gap-4">
                 <span className="text-xs font-mono font-bold text-gray-500 uppercase tracking-wider">CREATIVE SKILLS ENGINE:</span>
-                <div className="flex flex-wrap gap-2.5">
-                  <div className="px-3.5 py-1.5 rounded-xl bg-primary/10 border border-primary/25 text-white text-xs font-mono flex items-center gap-1">
-                    <Palette size={12} className="text-primary" /> UI/UX Design
-                  </div>
-                  <div className="px-3.5 py-1.5 rounded-xl bg-secondary/10 border border-secondary/25 text-white text-xs font-mono flex items-center gap-1">
-                    <Compass size={12} className="text-secondary" /> Web3D (Three.js/R3F)
-                  </div>
-                  <div className="px-3.5 py-1.5 rounded-xl bg-blue-500/10 border border-blue-500/25 text-white text-xs font-mono flex items-center gap-1">
-                    <Camera size={12} className="text-blue-400" /> Photography
-                  </div>
-                  <div className="px-3.5 py-1.5 rounded-xl bg-green-500/10 border border-green-500/25 text-white text-xs font-mono flex items-center gap-1">
-                    <Film size={12} className="text-green-400" /> Video Editing
-                  </div>
-                  <div className="px-3.5 py-1.5 rounded-xl bg-orange-500/10 border border-orange-500/25 text-white text-xs font-mono flex items-center gap-1">
-                    <Star size={12} className="text-orange-400" /> Thumbnail Art
-                  </div>
+                <div className="flex flex-col gap-3">
+                  {[
+                    { label: 'UI/UX Design', level: 92, icon: <Palette size={12} className="text-primary" /> },
+                    { label: 'Web3D Development', level: 85, icon: <Compass size={12} className="text-secondary" /> },
+                    { label: 'Photography & Videography', level: 88, icon: <Camera size={12} className="text-blue-400" /> },
+                    { label: 'Video Editing', level: 90, icon: <Film size={12} className="text-green-400" /> },
+                    { label: 'YouTube Thumbnail Art', level: 93, icon: <Star size={12} className="text-orange-400" /> },
+                  ].map((skill) => (
+                    <div key={skill.label} className="flex flex-col gap-1.5">
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs font-mono text-gray-300 flex items-center gap-1.5">{skill.icon} {skill.label}</span>
+                        <span className="text-[10px] font-bold font-mono text-primary">{skill.level}%</span>
+                      </div>
+                      <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                        <div 
+                          className="skill-bar"
+                          style={{ '--skill-level': `${skill.level}%` } as React.CSSProperties}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Terminal Fun Facts block */}
+              <div className="bg-[#05030e]/80 border border-white/8 rounded-2xl p-5 font-mono text-xs text-left">
+                <div className="flex items-center gap-2 mb-3 pb-3 border-b border-white/5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
+                  <span className="text-gray-500 ml-2 text-[10px]">shouvik@portfolio ~ stats</span>
+                </div>
+                <div className="space-y-1.5 text-gray-400">
+                  <p><span className="text-primary">$</span> youtube_channels <span className="text-green-400">5</span></p>
+                  <p><span className="text-primary">$</span> social_platforms <span className="text-green-400">8</span></p>
+                  <p><span className="text-primary">$</span> projects_shipped <span className="text-green-400">7</span></p>
+                  <p><span className="text-primary">$</span> countries_explored <span className="text-green-400">3+</span></p>
+                  <p><span className="text-primary">$</span> total_subscribers <span className="text-green-400">1594+</span></p>
+                  <p><span className="text-primary">$</span> status <span className="text-yellow-400 animate-pulse">"Available for hire ✓"</span></p>
                 </div>
               </div>
 

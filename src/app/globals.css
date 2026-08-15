@@ -258,3 +258,215 @@ body::before {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 0, 127, 0.15);
 }
+
+/* ============================================================
+   FUTURISTIC REBUILD — PHASE 1-7 UTILITY CLASSES
+   ============================================================ */
+
+/* Glitch name effect */
+@keyframes glitch-clip-1 {
+  0%, 100% { clip-path: inset(0 0 95% 0); transform: translate(-2px, 0); }
+  25% { clip-path: inset(40% 0 50% 0); transform: translate(2px, 0); }
+  50% { clip-path: inset(70% 0 20% 0); transform: translate(-1px, 0); }
+  75% { clip-path: inset(10% 0 80% 0); transform: translate(3px, 0); }
+}
+@keyframes glitch-clip-2 {
+  0%, 100% { clip-path: inset(60% 0 10% 0); transform: translate(2px, 0); }
+  25% { clip-path: inset(10% 0 70% 0); transform: translate(-3px, 0); }
+  50% { clip-path: inset(80% 0 5% 0); transform: translate(1px, 0); }
+  75% { clip-path: inset(30% 0 60% 0); transform: translate(-2px, 0); }
+}
+
+.glitch-name {
+  position: relative;
+}
+.glitch-name::before,
+.glitch-name::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #fff 20%, #ff007f 65%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+.glitch-name::before {
+  animation: glitch-clip-1 0.3s steps(1) forwards;
+  opacity: 0.8;
+  filter: drop-shadow(-2px 0 #ff007f);
+}
+.glitch-name::after {
+  animation: glitch-clip-2 0.3s steps(1) forwards;
+  opacity: 0.6;
+  filter: drop-shadow(2px 0 #8b5cf6);
+}
+
+/* Skills marquee */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.skills-marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee-scroll 20s linear infinite;
+  width: max-content;
+}
+.skills-marquee-track:hover {
+  animation-play-state: paused;
+}
+.skills-marquee-wrap {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* Shimmer text animation */
+@keyframes shimmer-move {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.text-shimmer {
+  background: linear-gradient(90deg, #6b7280 0%, #ffffff 40%, #6b7280 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-move 3s linear infinite;
+}
+
+/* Neon border pulse */
+@keyframes neon-border-pulse {
+  0%, 100% { border-color: rgba(255, 0, 127, 0.3); box-shadow: 0 0 8px rgba(255, 0, 127, 0.2); }
+  50% { border-color: rgba(255, 0, 127, 0.7); box-shadow: 0 0 20px rgba(255, 0, 127, 0.5); }
+}
+.neon-border {
+  border: 1px solid rgba(255, 0, 127, 0.3);
+  animation: neon-border-pulse 2.5s ease-in-out infinite;
+}
+
+/* Featured neon ribbon */
+.neon-ribbon {
+  position: absolute;
+  top: 14px;
+  left: -8px;
+  background: linear-gradient(90deg, #ff007f, #8b5cf6);
+  color: white;
+  font-size: 9px;
+  font-weight: 900;
+  font-family: monospace;
+  letter-spacing: 0.15em;
+  padding: 3px 14px 3px 12px;
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+  box-shadow: 0 0 18px rgba(255, 0, 127, 0.5);
+  z-index: 10;
+  text-transform: uppercase;
+}
+
+/* Count-up number animation base */
+.count-up {
+  display: inline-block;
+  transition: all 0.4s ease;
+}
+
+/* Platform-specific accent borders */
+.border-youtube { border-color: rgba(255, 0, 0, 0.35) !important; }
+.border-instagram { border-color: rgba(238, 42, 123, 0.35) !important; }
+.border-facebook { border-color: rgba(24, 119, 242, 0.35) !important; }
+
+/* Skill progress bar */
+@keyframes skill-fill {
+  from { width: 0%; }
+  to { width: var(--skill-level); }
+}
+.skill-bar {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, hsl(342 100% 50%), hsl(263 90% 60%));
+  animation: skill-fill 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  width: 0%;
+}
+
+/* Timeline vertical line */
+.timeline-line {
+  position: absolute;
+  left: 16px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, hsl(342 100% 50% / 0.6), hsl(263 90% 60% / 0.2));
+}
+
+/* Article NEW badge */
+@keyframes badge-breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.badge-new {
+  background: linear-gradient(90deg, #ff007f, #8b5cf6);
+  color: white;
+  font-size: 8px;
+  font-weight: 900;
+  font-family: monospace;
+  letter-spacing: 0.15em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  animation: badge-breathe 1.5s ease-in-out infinite;
+  text-transform: uppercase;
+}
+
+/* Masonry grid */
+.masonry-grid {
+  columns: 1;
+  column-gap: 1.5rem;
+}
+@media (min-width: 640px) { .masonry-grid { columns: 2; } }
+@media (min-width: 1024px) { .masonry-grid { columns: 3; } }
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+/* Scroll-aware navbar compact mode */
+.navbar-compact {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background: rgba(4, 2, 9, 0.97) !important;
+  backdrop-filter: blur(32px) !important;
+}
+
+/* Active nav link indicator */
+.nav-active-dot {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: hsl(342 100% 50%);
+  box-shadow: 0 0 8px rgba(255, 0, 127, 0.8);
+}
+
+/* Rocket button hover */
+@keyframes rocket-lift {
+  0%, 100% { transform: translateY(0) rotate(-45deg); }
+  50% { transform: translateY(-4px) rotate(-45deg); }
+}
+.rocket-btn:hover .rocket-icon {
+  animation: rocket-lift 0.5s ease-in-out infinite;
+}
+
+/* Glass panel upgrade for Phase 7 */
+.glass-panel-deep {
+  background: rgba(8, 5, 18, 0.78);
+  backdrop-filter: blur(32px) saturate(240%);
+  -webkit-backdrop-filter: blur(32px) saturate(240%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1.25rem;
+  box-shadow:
+    0 12px 40px 0 rgba(0, 0, 0, 0.55),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.06);
+}
+
