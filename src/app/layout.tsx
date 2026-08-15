@@ -1,23 +1,10 @@
 import type { Metadata } from 'next';
-import { Outfit, Fira_Code } from 'next/font/google';
 import './globals.css';
 import { Suspense } from 'react';
 import Background3D from '@/components/3d/Background3D';
 import ConsoleGuard from '@/components/ui/ConsoleGuard';
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-sans',
-  display: 'swap',
-});
-
-const firaCode = Fira_Code({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-mono',
-  display: 'swap',
-});
+import CommandPalette from '@/components/CommandPalette';
+import FloatingActionDock from '@/components/FloatingActionDock';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://shouvikdasportfolio.qzz.io'),
@@ -147,7 +134,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
       </head>
-      <body className={`${outfit.variable} ${firaCode.variable} antialiased font-sans bg-transparent`}>
+      <body className="antialiased font-sans bg-transparent">
         {/* Intercepts and silences three-party deprecations */}
         <ConsoleGuard />
 
@@ -155,6 +142,10 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <Background3D />
         </Suspense>
+
+        {/* Global Standout Features */}
+        <CommandPalette />
+        <FloatingActionDock />
         
         {/* Main layout contents */}
         {children}

@@ -5,6 +5,7 @@ import { Article } from '@/lib/db';
 import { Heart, UserPlus, Share2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import confetti from 'canvas-confetti';
+import { sfx } from '@/lib/soundEffects';
 
 interface ArticleCardProps {
   article: Article;
@@ -34,6 +35,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
 
   // Sync click events to database using API routes
   const handleInteraction = async (action: 'likes' | 'followers' | 'shares') => {
+    sfx.playClick();
     // 1. Optimistic updates
     if (action === 'likes') {
       if (isLiked) return;

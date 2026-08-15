@@ -162,6 +162,19 @@ export default function AboutPage() {
                 </div>
               </div>
 
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-4 mt-2">
+                <GlowButton href="/resume">
+                  VIEW FULL RESUME / CV
+                </GlowButton>
+                <a 
+                  href="/contact"
+                  className="px-6 py-3.5 rounded-full border border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary/10 text-white font-bold text-xs tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
+                >
+                  GET IN TOUCH
+                </a>
+              </div>
+
             </div>
 
           </div>

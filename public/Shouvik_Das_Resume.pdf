@@ -6,27 +6,95 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << >> >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
 endobj
 4 0 obj
-<< /Length 51 >>
+<< /Length 1280 >>
 stream
 BT
-/F1 12 Tf
-72 712 Td
-(Shouvik Das Portfolio - Resume Placeholder) Tj
+/F2 20 Tf
+50 780 Td
+(SHOUVIK DAS) Tj
+0 -20 Td
+/F1 10 Tf
+(UI/UX Designer | Web3D Developer | Content Creator) Tj
+0 -15 Td
+(Email: shouvikdaswork@gmail.com | Location: West Bengal, India | Portfolio: shouvikdasportfolio.qzz.io) Tj
+0 -25 Td
+/F2 12 Tf
+(EXECUTIVE SUMMARY) Tj
+0 -15 Td
+/F1 9 Tf
+(UI/UX Designer and Web3D Frontend Developer with 4+ years of expertise crafting high-performance,) Tj
+0 -12 Td
+(spatial web applications, Three.js 3D portals, and managing multi-channel media properties with 25,000+ followers.) Tj
+0 -25 Td
+/F2 12 Tf
+(CORE TECHNICAL & CREATIVE SKILLS) Tj
+0 -15 Td
+/F1 9 Tf
+(- Design: Figma, Wireframing, Rapid Prototyping, Design Systems, Mobile-First UX, Glassmorphism) Tj
+0 -12 Td
+(- Frontend & 3D: Next.js 16, React 19, Three.js, React Three Fiber, TypeScript, Tailwind CSS, Framer Motion) Tj
+0 -12 Td
+(- Backend & Data: Supabase (PostgreSQL), REST APIs, Node.js, Vercel Cron Scheduling, Automation) Tj
+0 -12 Td
+(- Media Production: DaVinci Resolve, Adobe Premiere, Photoshop, Cinematography, YouTube Thumbnail Design) Tj
+0 -25 Td
+/F2 12 Tf
+(PROFESSIONAL EXPERIENCE) Tj
+0 -15 Td
+/F2 10 Tf
+(Lead Web3D Developer & UI/UX Consultant | 2022 - Present) Tj
+0 -12 Td
+/F1 9 Tf
+(- Designed and engineered hardware-accelerated 3D spatial web applications with Next.js and Three.js.) Tj
+0 -12 Td
+(- Built sub-50ms caching pipelines using Supabase and Next.js Incremental Static Regeneration (ISR).) Tj
+0 -18 Td
+/F2 10 Tf
+(Founder & Lead Creator - Anime Nation India | 2021 - Present) Tj
+0 -12 Td
+/F1 9 Tf
+(- Produced 200+ high-retention video edits, manga analysis stories, and motion graphics.) Tj
+0 -12 Td
+(- Scaled audience to 25,000+ subscribers across YouTube, Instagram, and Facebook.) Tj
+0 -25 Td
+/F2 12 Tf
+(FEATURED PROJECTS) Tj
+0 -15 Td
+/F1 9 Tf
+(- AniSpectra: 3D Spatial Audio & Anime Streaming Hub (Next.js, Three.js, Tailwind CSS)) Tj
+0 -12 Td
+(- SVK Downloader: High-performance stream processing utility with real-time UI) Tj
+0 -12 Td
+(- 3D Physical Showroom: Hardware-accelerated WebGL product portal with dynamic lighting) Tj
+0 -25 Td
+/F2 12 Tf
+(EDUCATION) Tj
+0 -15 Td
+/F1 9 Tf
+(Bachelor of Computer Applications (BCA) | West Bengal, India) Tj
 ET
 endstream
 endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
 xref
-0 5
+0 7
 0000000000 65535 f 
 0000000009 00000 n 
 0000000056 00000 n 
 0000000111 00000 n 
-0000000212 00000 n 
+0000000244 00000 n 
+0000001576 00000 n 
+0000001643 00000 n 
 trailer
-<< /Size 5 /Root 1 0 R >>
+<< /Size 7 /Root 1 0 R >>
 startxref
-313
+1715
 %%EOF

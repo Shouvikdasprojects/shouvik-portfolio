@@ -4,16 +4,18 @@ import { useState, useMemo, useEffect } from 'react';
 import { Article } from '@/lib/db';
 import ArticleCard from '@/components/ui/ArticleCard';
 import GlassCard from '@/components/ui/GlassCard';
-import { Search, Mail, Sparkles, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, Mail, Sparkles, Filter, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import confetti from 'canvas-confetti';
+import { sfx } from '@/lib/soundEffects';
 
 interface BlogListingProps {
   articles: Article[];
 }
 
 const categories = ["All", "Technology", "Science", "Global Innovations", "Entertainment", "Anime"];
-const ITEMS_PER_PAGE = 12; // Premium pagination limit (12 items per page)
+const ITEMS_PER_PAGE = 12;
 
 export default function BlogListing({ articles }: BlogListingProps) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,7 +25,6 @@ export default function BlogListing({ articles }: BlogListingProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
 
-  // Reset to page 1 when search or category changes
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, activeCategory]);
@@ -31,20 +32,18 @@ export default function BlogListing({ articles }: BlogListingProps) {
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {
+      sfx.playClick();
       router.push(`/search?query=${encodeURIComponent(searchTerm.trim())}`);
     }
   };
 
-  // High performance filtered articles memoization with strict case-insensitive, partial-string matching
   const filteredArticles = useMemo(() => {
-    // 1. Force strict Date sorting to always show newest articles first
     const sorted = [...articles].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
-    
     const clean = searchTerm.toLowerCase().trim();
     return sorted.filter(art => {
       const matchesSearch = !clean ||
         art.title.toLowerCase().includes(clean) || 
-        art.description.toLowerCase().includes(clean) ||
+        art.description.toLowerCase().includes(clean) || 
         art.content.toLowerCase().includes(clean) ||
         art.category.toLowerCase().includes(clean) ||
         art.source.toLowerCase().includes(clean);
@@ -57,7 +56,6 @@ export default function BlogListing({ articles }: BlogListingProps) {
     });
   }, [articles, searchTerm, activeCategory]);
 
-  // Paginated articles
   const paginatedArticles = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     return filteredArticles.slice(startIndex, startIndex + ITEMS_PER_PAGE);
@@ -67,8 +65,22 @@ export default function BlogListing({ articles }: BlogListingProps) {
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!emailSub) return;
+    if (!emailSub.trim()) return;
+    
+    sfx.playChime();
     setIsSubscribed(true);
+    
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('shouvik_blog_sub_email', emailSub.trim());
+    }
+
+    confetti({
+      particleCount: 70,
+      spread: 70,
+      origin: { y: 0.7 },
+      colors: ['#ff007f', '#8b5cf6', '#0ea5e9']
+    });
+
     setEmailSub("");
   };
 
@@ -86,7 +98,7 @@ export default function BlogListing({ articles }: BlogListingProps) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search articles, releases, tags..."
-            className="w-full pl-12 pr-6 py-3.5 glass-input text-sm"
+            className="w-full pl-12 pr-6 py-3.5 glass-input text-sm rounded-xl"
           />
         </form>
 
@@ -97,10 +109,14 @@ export default function BlogListing({ articles }: BlogListingProps) {
             return (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 text-xs font-mono font-bold tracking-wider rounded-full transition-all duration-300 cursor-pointer ${
+                onClick={() => {
+                  sfx.playClick();
+                  setActiveCategory(cat);
+                }}
+                onMouseEnter={() => sfx.playHover()}
+                className={`px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer ${
                   isActive 
-                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-[0_0_15px_rgba(139,92,246,0.3)]' 
+                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-[0_0_15px_rgba(255,0,127,0.35)]' 
                     : 'bg-white/5 border border-white/5 text-gray-400 hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -122,7 +138,7 @@ export default function BlogListing({ articles }: BlogListingProps) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className="glass-panel p-12 text-center flex flex-col items-center gap-4 bg-[#0b0814]/40 border-white/5"
+                className="glass-panel p-12 text-center flex flex-col items-center gap-4 bg-[#0b0814]/40 border-white/5 rounded-2xl"
               >
                 <Filter size={32} className="text-gray-500 animate-pulse" />
                 <span className="font-mono text-gray-400 text-sm tracking-widest">
@@ -140,7 +156,7 @@ export default function BlogListing({ articles }: BlogListingProps) {
                   <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="relative rounded-2xl overflow-hidden border border-white/8 group cursor-pointer"
+                    className="relative rounded-2xl overflow-hidden border border-white/10 group cursor-pointer shadow-2xl"
                   >
                     <div className="relative h-64 md:h-72 w-full bg-slate-900">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -192,12 +208,14 @@ export default function BlogListing({ articles }: BlogListingProps) {
                   ))}
                 </motion.div>
 
-
                 {/* Premium Glassmorphism Pagination Controls */}
                 {totalPages > 1 && (
                   <div className="flex justify-center items-center gap-2 mt-4 py-4 border-t border-white/5">
                     <button
-                      onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                      onClick={() => {
+                        sfx.playClick();
+                        setCurrentPage(prev => Math.max(prev - 1, 1));
+                      }}
                       disabled={currentPage === 1}
                       className="px-3 py-2 rounded-lg border border-white/5 bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none transition-all flex items-center gap-1 cursor-pointer text-xs font-mono font-bold"
                     >
@@ -211,7 +229,10 @@ export default function BlogListing({ articles }: BlogListingProps) {
                         return (
                           <button
                             key={pageNum}
-                            onClick={() => setCurrentPage(pageNum)}
+                            onClick={() => {
+                              sfx.playClick();
+                              setCurrentPage(pageNum);
+                            }}
                             className={`w-8 h-8 rounded-lg border transition-all flex items-center justify-center cursor-pointer ${
                               isCurrent
                                 ? 'bg-gradient-to-r from-primary to-secondary border-transparent text-white shadow-[0_0_10px_rgba(139,92,246,0.3)]'
@@ -225,7 +246,10 @@ export default function BlogListing({ articles }: BlogListingProps) {
                     </div>
 
                     <button
-                      onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                      onClick={() => {
+                        sfx.playClick();
+                        setCurrentPage(prev => Math.min(prev + 1, totalPages));
+                      }}
                       disabled={currentPage === totalPages}
                       className="px-3 py-2 rounded-lg border border-white/5 bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none transition-all flex items-center gap-1 cursor-pointer text-xs font-mono font-bold"
                     >
@@ -242,7 +266,7 @@ export default function BlogListing({ articles }: BlogListingProps) {
         <div className="lg:col-span-4 flex flex-col gap-8">
           
           {/* A. Premium newsletter card */}
-          <GlassCard className="bg-[#0b0814]/50 border-white/5">
+          <GlassCard className="bg-[#0b0814]/50 border-white/5 p-6 rounded-2xl">
             <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-2">
               <Sparkles size={16} className="text-primary animate-pulse" /> Global Discoveries Digest
             </h3>
@@ -252,7 +276,9 @@ export default function BlogListing({ articles }: BlogListingProps) {
 
             {isSubscribed ? (
               <div className="p-4 bg-primary/10 border border-primary/20 rounded-2xl text-center">
-                <span className="text-xs font-mono font-bold text-primary block">✓ SUCCESSFUL SUBSCRIPTION!</span>
+                <span className="text-xs font-mono font-bold text-primary flex items-center justify-center gap-1">
+                  <CheckCircle2 size={14} /> SUCCESSFUL SUBSCRIPTION!
+                </span>
                 <p className="text-[10px] text-gray-400 mt-1">You will now receive automatic release alerts.</p>
               </div>
             ) : (
@@ -267,7 +293,8 @@ export default function BlogListing({ articles }: BlogListingProps) {
                 />
                 <button
                   type="submit"
-                  className="w-full py-3 text-xs font-bold font-mono tracking-wider bg-gradient-to-r from-primary to-secondary text-white rounded-xl hover:opacity-95 transition-opacity flex items-center justify-center gap-1.5 cursor-pointer"
+                  onMouseEnter={() => sfx.playHover()}
+                  className="w-full py-3 text-xs font-bold font-mono tracking-wider bg-gradient-to-r from-primary to-secondary text-white rounded-xl hover:opacity-95 transition-opacity flex items-center justify-center gap-1.5 cursor-pointer shadow-[0_0_15px_rgba(255,0,127,0.3)]"
                 >
                   <Mail size={12} /> SUBSCRIBE NOW
                 </button>
@@ -276,38 +303,29 @@ export default function BlogListing({ articles }: BlogListingProps) {
           </GlassCard>
 
           {/* B. News Feed Metrics Panel */}
-          <GlassCard className="bg-[#0b0814]/50 border-white/5 rounded-2xl">
+          <GlassCard className="bg-[#0b0814]/50 border-white/5 p-6 rounded-2xl">
             <h3 className="text-sm font-mono font-bold text-gray-300 uppercase tracking-widest mb-4">
-              Newsfeed Statistics
+              Autonomous Aggregation Engine
             </h3>
-            
-            <div className="flex flex-col gap-4 text-xs font-mono">
-              <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                <span className="text-gray-500">Total Publications</span>
-                <span className="text-white font-bold">{filteredArticles.length}</span>
+            <div className="space-y-3 font-mono text-xs text-gray-400">
+              <div className="flex justify-between py-2 border-b border-white/5">
+                <span>Cron Frequency:</span>
+                <span className="text-green-400 font-bold">Daily @ 03:00 UTC</span>
               </div>
-              <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                <span className="text-gray-500">Engine Source</span>
-                <span className="text-primary font-bold">NewsAPI + Google RSS + Gemini AI</span>
+              <div className="flex justify-between py-2 border-b border-white/5">
+                <span>AI Enhancement:</span>
+                <span className="text-primary font-bold">Gemini 2.5 Flash</span>
               </div>
-              <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                <span className="text-gray-500">Refresh Frequency</span>
-                <span className="text-secondary font-bold">24-hour Auto Cron</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                <span className="text-gray-500">Adult Safety Filter</span>
-                <span className="text-green-500 font-bold">STRICT NSFW ACTIVE</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-500">Database Driver</span>
-                <span className="text-accent font-bold uppercase">{process.env.DATABASE_TYPE || 'supabase'}</span>
+              <div className="flex justify-between py-2">
+                <span>Global Sources:</span>
+                <span className="text-cyan-400 font-bold">NewsAPI & RSS</span>
               </div>
             </div>
           </GlassCard>
 
         </div>
-      </div>
 
+      </div>
     </div>
   );
 }

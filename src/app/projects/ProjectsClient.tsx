@@ -7,6 +7,7 @@ import TiltCard from '@/components/ui/TiltCard';
 import { projectsList as staticProjects } from '@/lib/realData';
 import { ExternalLink, Sparkles, X, CheckCircle2, Layers, Cpu, Database, Terminal, Globe, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { sfx } from '@/lib/soundEffects';
 
 export default function ProjectsClient() {
   const [projects, setProjects] = useState<typeof staticProjects>(staticProjects);
@@ -131,7 +132,11 @@ export default function ProjectsClient() {
                   {project.details ? (
                     <>
                       <button 
-                        onClick={() => setSelectedProject(project)}
+                        onClick={() => {
+                          sfx.playWarp();
+                          setSelectedProject(project);
+                        }}
+                        onMouseEnter={() => sfx.playHover()}
                         className="flex-grow py-2.5 text-center text-xs font-bold border border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary/15 text-white rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-[0_0_10px_rgba(255,0,127,0.1)] hover:shadow-[0_0_18px_rgba(255,0,127,0.25)]"
                       >
                         View Full Specs <Sparkles size={12} className="text-primary animate-pulse" />
@@ -140,6 +145,8 @@ export default function ProjectsClient() {
                         href={project.demoUrl || '#'} 
                         target="_blank" 
                         rel="noreferrer" 
+                        onClick={() => sfx.playClick()}
+                        onMouseEnter={() => sfx.playHover()}
                         className="px-4 py-2.5 text-center text-xs font-bold bg-primary hover:bg-primary/90 text-white rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(255,0,127,0.3)] cursor-pointer"
                         title="Launch Application"
                       >
@@ -151,6 +158,8 @@ export default function ProjectsClient() {
                       href={project.demoUrl || '#'} 
                       target="_blank" 
                       rel="noreferrer" 
+                      onClick={() => sfx.playClick()}
+                      onMouseEnter={() => sfx.playHover()}
                       className="w-full py-2.5 text-center text-xs font-bold bg-primary hover:bg-primary/90 text-white rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(255,0,127,0.3)] cursor-pointer"
                     >
                       Explore Application <ExternalLink size={12} />

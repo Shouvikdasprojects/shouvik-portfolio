@@ -6,6 +6,7 @@ import ArticleCard from '@/components/ui/ArticleCard';
 import { Search, Filter, AlertTriangle, ArrowUpDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { sfx } from '@/lib/soundEffects';
 
 interface SearchResultsProps {
   articles: Article[];
@@ -28,6 +29,7 @@ export default function SearchResults({ articles, initialQuery }: SearchResultsP
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {
+      sfx.playClick();
       router.push(`/search?query=${encodeURIComponent(searchTerm.trim())}`);
     }
   };

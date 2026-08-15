@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', monospace;
   --color-primary: hsl(342 100% 50%); /* Glowing Neon Pink (#ff007f) */
   --color-secondary: hsl(263 90% 60%); /* Violet Accent */
   --color-accent: hsl(199 89% 48%); /* Electric Blue Accent */

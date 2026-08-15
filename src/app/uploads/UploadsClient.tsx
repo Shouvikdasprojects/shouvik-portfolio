@@ -5,6 +5,7 @@ import TiltCard from '@/components/ui/TiltCard';
 import SafeImage from '@/components/ui/SafeImage';
 import { ExternalLink, Sparkles, Film, Image as ImageIcon, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { sfx } from '@/lib/soundEffects';
 
 interface Upload {
   title: string;
@@ -66,7 +67,11 @@ export default function UploadsClient({ uploads }: Props) {
         {PLATFORM_FILTERS.map((f) => (
           <button
             key={f.label}
-            onClick={() => setActiveFilter(f.label)}
+            onClick={() => {
+              sfx.playClick();
+              setActiveFilter(f.label);
+            }}
+            onMouseEnter={() => sfx.playHover()}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer border ${
               activeFilter === f.label
                 ? 'bg-gradient-to-r from-primary to-secondary text-white border-transparent shadow-[0_0_15px_rgba(255,0,127,0.35)]'
