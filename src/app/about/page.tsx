@@ -83,15 +83,15 @@ export default function AboutPage() {
                 <div className="w-16 h-[2px] bg-primary rounded-full" />
               </div>
 
-              <div className="flex flex-col gap-4 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+              <div className="flex flex-col gap-4 text-gray-300 text-sm md:text-base leading-relaxed space-y-3">
                 <p>
-                  Hi, I'm Shouvik Das, a tech enthusiast, visual storyteller, and Web3D developer from India. My work lies at the intersection of stunning visual design and interactive frontend technologies. I build high-performance, immersive environments that run smoothly across devices.
+                  I am Shouvik Das, a visionary UI/UX Architect, Spatial Web3D Developer, and digital media director based in India. My mission is to push the boundaries of modern web applications by fusing cinematic visual design with hardware-accelerated WebGL spatial computing and sub-50ms cloud performance.
                 </p>
                 <p>
-                  My heart belongs to three things: Adventure, Anime, and Gastronomy. I love traveling to scenic spots, exploring new cultures, and dreaming about visiting foreign countries. I am an avid reader of Manga and Manhwa, and the mind behind 3 active anime YouTube channels. There, I create in-depth manga explanation videos, custom edits, synchronization layers, and digital graphics.
+                  Beyond engineering, my creative passions are anchored in three pillars: <strong className="text-white">Immersive Anime Lore</strong>, <strong className="text-white">Cinematographic Travel</strong>, and <strong className="text-white">World Gastronomy</strong>. I orchestrate a multi-platform content ecosystem with over 25,000+ dedicated followers across Anime Nation India and personal channels, producing deep narrative manga breakdowns, visual synchronization layers, and motion graphics.
                 </p>
                 <p>
-                  As a creator, I am highly proficient in Photography & Videography, crafting high-end Video Editing sequences, and designing viral YouTube Thumbnails that grab attention instantly. And yes—I'm an absolute foodie who loves exploring local food joints and trying out new cuisines!
+                  As an end-to-end creative technologist, I excel in high-fidelity prototyping, advanced video editing & VFX, viral YouTube thumbnail architecture, and capturing stunning cinematography from scenic expeditions around the world.
                 </p>
               </div>
 

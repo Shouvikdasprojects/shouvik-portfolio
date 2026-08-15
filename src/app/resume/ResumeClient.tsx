@@ -139,12 +139,12 @@ export default function ResumeClient() {
                     {personalInfo.name}
                   </h1>
                   <p className="text-sm font-mono font-bold text-primary mt-1 print:text-slate-700">
-                    UI/UX Designer & Web3D Developer | Media Creator
+                    Visionary UI/UX Architect & Spatial Web3D Developer | Media Creator
                   </p>
                   <div className="flex flex-wrap gap-4 mt-2 text-xs text-gray-400 font-mono print:text-slate-600">
                     <span className="flex items-center gap-1"><MapPin size={12} className="text-primary" /> West Bengal, India</span>
                     <span className="flex items-center gap-1"><Mail size={12} className="text-primary" /> {personalInfo.email}</span>
-                    <span className="flex items-center gap-1 text-emerald-400"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> Available for Contract / Full-Time</span>
+                    <span className="flex items-center gap-1 text-emerald-400"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> Available for Global Contract & Full-Time</span>
                   </div>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function ResumeClient() {
                 <Sparkles size={14} /> Executive Summary
               </h2>
               <p className="text-sm text-gray-300 leading-relaxed print:text-slate-800">
-                Passionate UI/UX Designer and Web3D Frontend Developer with 4+ years of expertise crafting high-performance, spatial web applications and immersive digital ecosystems. Proven track record managing multi-channel digital media properties exceeding 25,000+ subscribers and millions of views. Specializing in Three.js (R3F), Next.js 16, TypeScript, Figma design systems, motion graphics, and cinematography.
+                Visionary UI/UX Architect and Spatial Web3D Developer with 4+ years of expertise engineering high-performance, spatial web ecosystems and hardware-accelerated WebGL applications. Proven creator leadership directing multi-channel digital media networks exceeding 25,000+ followers and millions of impressions across Anime Nation India and personal brands. Specialist in Next.js 16 (App Router), React 19, Three.js (R3F), TypeScript, bespoke design systems, motion graphics, and world-class video production.
               </p>
             </div>
 

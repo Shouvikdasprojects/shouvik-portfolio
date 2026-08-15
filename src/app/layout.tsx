@@ -9,10 +9,10 @@ import FloatingActionDock from '@/components/FloatingActionDock';
 export const metadata: Metadata = {
   metadataBase: new URL('https://shouvikdasportfolio.qzz.io'),
   title: {
-    default: 'Shouvik Das | 3D Portfolio & Content Creator',
+    default: 'Shouvik Das | Visionary UI/UX Architect & Spatial Web3D Developer',
     template: '%s | Shouvik Das',
   },
-  description: 'Welcome to my official 3D portfolio website. I am Shouvik Das, a Next.js frontend developer and digital content creator specializing in interactive web experiences.',
+  description: 'Welcome to the official 3D portfolio of Shouvik Das — Visionary UI/UX Architect, Spatial Web3D Developer, and Digital Media Creator specializing in hardware-accelerated web ecosystems.',
   keywords: [
     'Shouvik Das',
     'Shouvik Das portfolio',
@@ -105,21 +105,22 @@ export default function RootLayout({
         "@id": "https://shouvikdasportfolio.qzz.io/#person",
         "name": "Shouvik Das",
         "image": "https://shouvikdasportfolio.qzz.io/favicon.ico",
-        "description": "Expert Full-Stack Web3D Developer, UI/UX Designer, and SEO Specialist.",
+        "description": "Visionary UI/UX Architect, Spatial Web3D Developer, and Digital Media Creator.",
         "sameAs": [
           "https://www.instagram.com/shouvik_das_official",
           "https://x.com/shouvikdas155",
-          "https://github.com"
+          "https://heylink.me/ShouvikDas/"
         ],
-        "jobTitle": "Full-Stack Web3D Developer",
+        "jobTitle": "Visionary UI/UX Architect & Spatial Web3D Developer",
         "email": "shouvikdaswork@gmail.com",
         "knowsAbout": [
           "Three.js",
           "React Three Fiber",
-          "Next.js",
+          "Next.js 16",
+          "UI/UX Architecture",
           "Tailwind CSS",
-          "Artificial Intelligence",
-          "Search Engine Optimization (SEO)"
+          "Digital Storytelling",
+          "Artificial Intelligence"
         ]
       }
     ]

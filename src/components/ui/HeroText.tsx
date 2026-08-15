@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { useEffect, useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import ModernDigitalClock from './ModernDigitalClock';
 
 interface HeroTextProps {
@@ -10,11 +10,11 @@ interface HeroTextProps {
 }
 
 const ROLES = [
-  'UI/UX Designer',
-  'Web3D Developer',
-  'Anime Content Creator',
-  'Travel Photographer',
-  'Video Editor',
+  'UI/UX Architect',
+  'Spatial Web3D Developer',
+  'Anime Content Director',
+  'Cinematographer & Editor',
+  'Next.js 16 Specialist',
 ];
 
 function TypewriterRole() {
@@ -52,11 +52,15 @@ function GlitchName({ name }: { name: string }) {
   const [glitching, setGlitching] = useState(false);
 
   useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
     const interval = setInterval(() => {
       setGlitching(true);
-      setTimeout(() => setGlitching(false), 300);
+      timeoutId = setTimeout(() => setGlitching(false), 300);
     }, 5000);
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return (

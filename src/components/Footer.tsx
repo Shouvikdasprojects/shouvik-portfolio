@@ -36,7 +36,7 @@ export default function Footer() {
               SHOUVIK <span className="text-primary">DAS</span>
             </span>
             <p className="text-gray-400 text-xs max-w-sm leading-relaxed">
-              I'm a UI/UX Designer, Web3D Developer, and digital content creator from India. I craft high-performance, immersive web environments. Beyond coding, I'm an avid reader of Manga and Manhwa, and I manage 3 active YouTube channels dedicated to Anime explanations and visual storytelling. I'm also an absolute foodie and travel enthusiast!
+              Visionary UI/UX Architect & Spatial Web3D Developer from India. I engineer high-performance, immersive web environments and lead a 25K+ creator ecosystem across YouTube, Instagram, and digital media platforms.
             </p>
             
             {/* Social Icons */}

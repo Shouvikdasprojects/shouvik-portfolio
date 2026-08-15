@@ -9,8 +9,8 @@
 // 1. Personal Branding Info & Contact details
 export const personalInfo = {
   name: "Shouvik Das",
-  role: "Passionate UI/UX Designer & Web3D Developer",
-  bio: "I'm a UI/UX Designer, Web3D Developer, and digital content creator from India. I craft high-performance, immersive web environments. Beyond coding, I'm an avid reader of Manga and Manhwa, and I manage 3 active YouTube channels dedicated to Anime explanations and visual storytelling. I'm also an absolute foodie and travel enthusiast!",
+  role: "Visionary UI/UX Architect & Spatial Web3D Developer",
+  bio: "I am an innovative UI/UX Architect, Web3D Developer, and digital media director from India. I specialize in building ultra-performant, hardware-accelerated spatial web experiences powered by Next.js, Three.js, and bespoke design systems. Beyond engineering, I orchestrate a multi-platform content ecosystem with over 25,000+ followers, directing immersive anime storytelling and visual media. An avid connoisseur of Manga, Manhwa, and international gastronomy, I am constantly exploring the convergence of cutting-edge technology, cinematic creativity, and world travel.",
   email: "shouvikdaswork@gmail.com", // Your real contact email
   avatarUrl: "/assets/shouvik.jpg", 
   resumeUrl: "/Shouvik_Das_Resume.pdf", 
@@ -18,9 +18,9 @@ export const personalInfo = {
   
   // Real biography details extracted from your hobbies and achievements!
   aboutDetails: {
-    location: "India",
-    hobbies: ["Traveling to scenic spots", "Creating anime content & edits", "Exploring foreign countries", "Food blogging (Foodie!)"],
-    skills: ["UI/UX Design", "Web3D Development (Three.js/R3F)", "Photography & Videography", "High-End Video Editing", "YouTube Thumbnail Designing"]
+    location: "West Bengal, India",
+    hobbies: ["Global Scenic Travel & Vlogging", "Anime Storytelling & Motion Edits", "Manga & Manhwa Lore Analysis", "Culinary Exploration (Foodie)"],
+    skills: ["UI/UX Architecture & Figma", "Spatial Web3D (Three.js / R3F)", "Cinematography & Videography", "High-End Video Editing & VFX", "Viral Thumbnail Design & YouTube SEO"]
   }
 };
 
