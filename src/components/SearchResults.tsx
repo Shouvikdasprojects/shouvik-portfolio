@@ -91,11 +91,11 @@ export default function SearchResults({ articles, initialQuery }: SearchResultsP
         {/* Search bar and title */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
-            <span className="text-[10px] font-bold font-mono tracking-widest text-[#ff007f] uppercase block mb-1">
+            <span className="text-[10px] font-bold font-mono tracking-widest text-primary uppercase block mb-1">
               SEARCH RESULTS ENGINE
             </span>
             <h2 className="text-xl md:text-2xl font-black text-white flex items-center gap-2">
-              Showing Results for <span className="text-[#ff007f] italic">&ldquo;{initialQuery}&rdquo;</span>
+              Showing Results for <span className="text-primary italic">&ldquo;{initialQuery}&rdquo;</span>
             </h2>
           </div>
           
@@ -125,7 +125,7 @@ export default function SearchResults({ articles, initialQuery }: SearchResultsP
                   onClick={() => setActiveCategory(cat)}
                   className={`px-3 py-1.5 rounded-full text-[10px] font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer ${
                     isActive 
-                      ? 'bg-gradient-to-r from-[#ff007f] to-[#8b5cf6] text-white shadow-[0_0_12px_rgba(255,0,127,0.25)]' 
+                      ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-[0_0_12px_rgba(255,0,127,0.25)]' 
                       : 'bg-white/5 border border-white/5 text-gray-400 hover:text-white hover:bg-white/10'
                   }`}
                 >
@@ -138,12 +138,12 @@ export default function SearchResults({ articles, initialQuery }: SearchResultsP
           {/* Sorting Dropdown */}
           <div className="flex items-center gap-2 w-full lg:w-auto justify-end">
             <span className="text-[10px] font-mono font-bold text-gray-500 flex items-center gap-1 uppercase">
-              <ArrowUpDown size={12} className="text-[#ff007f]" /> Sort By:
+              <ArrowUpDown size={12} className="text-primary" /> Sort By:
             </span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="glass-input px-3 py-2 text-[10px] font-mono font-bold text-gray-300 bg-[#090611] focus:border-[#ff007f] border-white/5 rounded-lg outline-none cursor-pointer"
+              className="glass-input px-3 py-2 text-[10px] font-mono font-bold text-gray-300 bg-[#090611] focus:border-primary border-white/5 rounded-xl outline-none cursor-pointer"
             >
               {sortOptions.map((opt) => (
                 <option key={opt.value} value={opt.value} className="bg-[#090611] text-gray-300">

@@ -57,12 +57,12 @@ export default function DevSyncButton() {
           ) : (
             <>
               {loading ? (
-                <RefreshCw className="text-[#ff007f] shrink-0 animate-spin" size={16} />
+                <RefreshCw className="text-primary shrink-0 animate-spin" size={16} />
               ) : (
                 <CheckCircle className="text-green-500 shrink-0" size={16} />
               )}
               <div>
-                <span className="font-bold text-[#ff007f] block font-mono">DEVELOPER ENGINE</span>
+                <span className="font-bold text-primary block font-mono">DEVELOPER ENGINE</span>
                 <p className="text-gray-300 mt-0.5">{status}</p>
               </div>
             </>
@@ -74,7 +74,7 @@ export default function DevSyncButton() {
       <button
         onClick={handleSync}
         disabled={loading}
-        className="px-5 py-3 rounded-full bg-gradient-to-r from-[#ff007f] to-[#8b5cf6] hover:opacity-95 disabled:opacity-50 text-white font-bold font-mono text-[10px] tracking-widest flex items-center gap-2 shadow-[0_0_20px_rgba(255,0,127,0.4)] transition-all transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+        className="px-5 py-3 rounded-full bg-gradient-to-r from-primary to-secondary hover:opacity-95 disabled:opacity-50 text-white font-bold font-mono text-[10px] tracking-widest flex items-center gap-2 shadow-[0_0_20px_rgba(255,0,127,0.4)] transition-all transform hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
         title="Developer Mode: Sync Database"
       >
         <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />

@@ -44,9 +44,9 @@ export default function Navbar() {
           {/* Glowing Brand Logo */}
           <Link href="/" className="relative group">
             <span className="text-xl font-black tracking-widest font-mono text-white transition-colors duration-300">
-              S<span className="text-[#ff007f] transition-colors duration-300">D</span>.
+              S<span className="text-primary transition-colors duration-300">D</span>.
             </span>
-            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-[#ff007f] to-[#8b5cf6] group-hover:w-full transition-all duration-300 shadow-[0_0_10px_#ff007f]" />
+            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300 shadow-[0_0_10px_rgba(255,0,127,0.8)]" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -60,8 +60,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`text-sm font-semibold tracking-wide relative group transition-all duration-300 ${
                     isActive 
-                      ? 'text-[#ff007f] drop-shadow-[0_0_8px_rgba(255,0,127,0.5)] font-bold' 
-                      : 'text-gray-300 hover:text-[#ff007f]'
+                      ? 'text-primary drop-shadow-[0_0_8px_rgba(255,0,127,0.5)] font-bold' 
+                      : 'text-gray-300 hover:text-primary'
                   }`}
                 >
                   {link.name}
@@ -69,11 +69,11 @@ export default function Navbar() {
                   {isActive ? (
                     <motion.span 
                       layoutId="activeNavUnderline"
-                      className="absolute -bottom-1 left-0 w-full h-[2.5px] bg-[#ff007f] shadow-[0_0_10px_#ff007f] rounded-full"
+                      className="absolute -bottom-1 left-0 w-full h-[2.5px] bg-primary shadow-[0_0_10px_rgba(255,0,127,0.8)] rounded-full"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   ) : (
-                    <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-[#ff007f]/40 group-hover:w-full transition-all duration-300" />
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-primary/40 group-hover:w-full transition-all duration-300" />
                   )}
                 </Link>
               );
@@ -82,7 +82,7 @@ export default function Navbar() {
             {/* Glowing neon pink "Hire Me" button */}
             <Link 
               href="/contact"
-              className="px-6 py-2.5 rounded-lg border border-[#ff007f]/40 hover:border-[#ff007f] bg-[#ff007f]/10 hover:bg-[#ff007f] text-white hover:text-white font-bold text-xs tracking-wider transition-all duration-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,0,127,0.35)] hover:shadow-[0_0_25px_rgba(255,0,127,0.6)] cursor-pointer"
+              className="px-6 py-2.5 rounded-xl border border-primary/40 hover:border-primary bg-primary/10 hover:bg-primary text-white hover:text-white font-bold text-xs tracking-wider transition-all duration-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,0,127,0.35)] hover:shadow-[0_0_25px_rgba(255,0,127,0.6)] cursor-pointer"
             >
               HIRE ME <ArrowUpRight size={14} />
             </Link>
@@ -124,8 +124,8 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={`text-2xl font-bold transition-all duration-300 ${
                     isActive 
-                      ? 'text-[#ff007f] drop-shadow-[0_0_8px_rgba(255,0,127,0.5)]' 
-                      : 'text-gray-200 hover:text-[#ff007f]'
+                      ? 'text-primary drop-shadow-[0_0_8px_rgba(255,0,127,0.5)]' 
+                      : 'text-gray-200 hover:text-primary'
                   }`}
                 >
                   {link.name}
@@ -136,7 +136,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="px-8 py-3.5 rounded-lg bg-[#ff007f] text-white font-bold tracking-wider hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-[0_0_20px_rgba(255,0,127,0.5)] cursor-pointer"
+              className="px-8 py-3.5 rounded-xl bg-primary text-white font-bold tracking-wider hover:opacity-90 transition-opacity flex items-center gap-1.5 shadow-[0_0_20px_rgba(255,0,127,0.5)] cursor-pointer"
             >
               HIRE ME <ArrowUpRight size={16} />
             </Link>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Global Discoveries Blog | Shouvik Das',
     description: 'Explore dynamic, AI-powered pop-culture, science, tech, and anime articles generated in real-time.',
-    url: 'https://shouvikdas.eu.org/articles',
+    url: 'https://shouvikdasportfolio.qzz.io/articles',
     type: 'website',
   },
 };
@@ -28,7 +28,7 @@ export default async function ArticlesIndexPage() {
     "@type": "Blog",
     "name": "Global Discoveries Blog",
     "description": "Dynamic, AI-powered tech, anime, pop-culture, and science articles aggregated in real-time.",
-    "url": "https://shouvikdas.eu.org/articles",
+    "url": "https://shouvikdasportfolio.qzz.io/articles",
     "publisher": {
       "@type": "Person",
       "name": "Shouvik Das"
