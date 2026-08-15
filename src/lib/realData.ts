@@ -187,6 +187,37 @@ export const youtubeChannels = [
 // 4. Real-time Created Anime & Utility Websites (No GitHub source code buttons allowed!)
 export const projectsList = [
   {
+    title: "Otaku Insider",
+    description: "Otaku Insider is a next-generation anime tracking and discovery platform. Featuring a blazingly fast edge-optimized runtime on Cloudflare Workers, it connects directly with AniList GraphQL and Neon Serverless Postgres with Drizzle ORM to provide real-time seasonal schedules, personalized watchlists, and secure Better-Auth authentication.",
+    techStack: ["Next.js 16", "React 19", "Cloudflare Workers", "Neon Postgres", "Drizzle ORM", "Better-Auth", "AniList GraphQL", "Tailwind CSS v4"],
+    imageUrl: "/assets/otaku-insider.jpg",
+    demoUrl: "https://otaku-insider.shouvikdaswork.workers.dev",
+    featured: true,
+    details: {
+      tagline: "Your Next-Generation Anime Tracking & Discovery Platform at the Global Edge.",
+      overview: "Otaku Insider offers a seamless, blazingly fast experience for discovering new anime, tracking watch progress, viewing live airing schedules, and managing personalized watchlists. Built on modern Next.js 16 with React 19, it is deployed on Cloudflare Workers via OpenNext for incredible global performance and low edge latency. It uses Neon PostgreSQL with Drizzle ORM for type-safe serverless data storage and Better-Auth for robust user sessions.",
+      features: [
+        { title: "Comprehensive Anime Database", desc: "Powered by AniList GraphQL API for up-to-date, extensive anime metadata, voice actors, and streaming statistics." },
+        { title: "Live Airing Schedule", desc: "Keep track of exactly when the next episode of seasonal anime airs with live timezone-synced countdowns." },
+        { title: "Cloudflare Workers Edge Deployment", desc: "Engineered with OpenNext to run on Cloudflare's globally distributed edge network for sub-50ms latency worldwide." },
+        { title: "Secure Better-Auth Authentication", desc: "Seamless user login, session management, and profile synchronization powered by Better-Auth." },
+        { title: "Neon Serverless Postgres & Drizzle ORM", desc: "Type-safe database architecture with Drizzle ORM connecting to high-speed Neon Serverless Postgres." },
+        { title: "Personalized Watchlists", desc: "Custom tracking for Currently Watching, Completed, Dropped, and Plan-to-Watch titles with dark-mode first UI." }
+      ],
+      techStack: {
+        frontend: ["Next.js 16 (App Router)", "React 19", "TypeScript", "Tailwind CSS v4", "Shadcn UI", "Lucide React"],
+        backend: ["Neon PostgreSQL (Serverless)", "Drizzle ORM", "Better-Auth", "OpenNext"],
+        apis: ["AniList GraphQL API", "Edge Fetch Pipelines"],
+        deployment: ["Cloudflare Workers", "Custom Domain", "Edge Runtime"]
+      },
+      achievements: [
+        "Edge-Native SSR: Successfully adapted and deployed Next.js 16 and React 19 to Cloudflare Workers using OpenNext, achieving instant cold starts and sub-50ms global response times.",
+        "Type-Safe Database Pipeline: Engineered a complete schema with Drizzle ORM and Neon Postgres, eliminating runtime database errors.",
+        "GraphQL Synchronization: Built high-efficiency GraphQL queries to fetch AniList seasonal schedules and user watchlist states in parallel."
+      ]
+    }
+  },
+  {
     title: "AniSpectra",
     description: "AniSpectra is a premium, modern web application designed for anime enthusiasts. It serves as a cinematic discovery platform providing real-time updates on trending anime, seasonal releases, news, and official trailers. Users can seamlessly browse an extensive database, read detailed reviews, and build a personalized, cloud-synced watchlist.",
     techStack: ["Next.js 15", "React 19", "Tailwind CSS v4", "Firebase", "GraphQL", "REST API"],

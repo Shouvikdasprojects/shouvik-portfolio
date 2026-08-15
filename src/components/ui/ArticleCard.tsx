@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Article } from '@/lib/db';
-import { Heart, UserPlus, Share2, ArrowRight } from 'lucide-react';
+import { Heart, UserPlus, Share2, ArrowRight, Bookmark } from 'lucide-react';
 import Link from 'next/link';
 import confetti from 'canvas-confetti';
 import { sfx } from '@/lib/soundEffects';
+import { isArticleSaved, toggleArticleSaved } from '@/lib/bookmarkStore';
 
 interface ArticleCardProps {
   article: Article;
@@ -32,6 +33,27 @@ export default function ArticleCard({ article }: ArticleCardProps) {
   
   const [shares, setShares] = useState(article.shares);
   const [isShared, setIsShared] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+
+  useEffect(() => {
+    setIsSaved(isArticleSaved(article.slug));
+    const handleBookmarkEvent = (e: Event) => {
+      const custom = e as CustomEvent;
+      if (custom.detail?.slug === article.slug) {
+        setIsSaved(custom.detail.saved);
+      }
+    };
+    window.addEventListener('bookmarks-updated', handleBookmarkEvent);
+    return () => window.removeEventListener('bookmarks-updated', handleBookmarkEvent);
+  }, [article.slug]);
+
+  const handleBookmarkToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    sfx.playClick();
+    const nextSaved = toggleArticleSaved(article.slug);
+    setIsSaved(nextSaved);
+  };
 
   // Sync click events to database using API routes
   const handleInteraction = async (action: 'likes' | 'followers' | 'shares') => {
@@ -118,6 +140,17 @@ export default function ArticleCard({ article }: ArticleCardProps) {
             <span className="badge-new">NEW</span>
           )}
         </div>
+        <button
+          onClick={handleBookmarkToggle}
+          className={`absolute top-4 right-4 p-1.5 rounded-full backdrop-blur-md transition-all cursor-pointer z-10 ${
+            isSaved
+              ? 'bg-primary text-white shadow-[0_0_12px_rgba(255,0,127,0.5)]'
+              : 'bg-black/60 text-gray-300 hover:text-white hover:bg-black/80'
+          }`}
+          title={isSaved ? "Saved" : "Save for Later"}
+        >
+          <Bookmark size={12} fill={isSaved ? "currentColor" : "none"} />
+        </button>
         <div className="absolute bottom-4 right-4 flex items-center gap-2">
           <span className="bg-black/60 backdrop-blur-md text-[9px] text-gray-300 font-mono px-2 py-1 rounded">
             {getReadingTime(article.content)}

@@ -9,7 +9,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
 endobj
 4 0 obj
-<< /Length 1380 >>
+<< /Length 1460 >>
 stream
 BT
 /F2 20 Tf
@@ -27,7 +27,7 @@ BT
 /F1 9 Tf
 (Visionary UI/UX Architect and Spatial Web3D Developer with 4+ years of expertise engineering high-performance,) Tj
 0 -12 Td
-(spatial web ecosystems, hardware-accelerated Three.js 3D portals, and directing multi-channel media networks with 25,000+ followers.) Tj
+(spatial web ecosystems, Cloudflare Workers edge applications, and directing multi-channel media networks with 25,000+ followers.) Tj
 0 -25 Td
 /F2 12 Tf
 (CORE TECHNICAL & DESIGN COMPETENCIES) Tj
@@ -37,7 +37,7 @@ BT
 0 -12 Td
 (- Frontend & Spatial 3D: Next.js 16 (App Router), React 19, Three.js, React Three Fiber, TypeScript, Tailwind CSS, Framer Motion) Tj
 0 -12 Td
-(- Backend & Cloud Data: Supabase (PostgreSQL), REST APIs, Node.js, Vercel Cron Scheduling, Automation Pipelines) Tj
+(- Backend & Edge Data: Cloudflare Workers (OpenNext), Neon Postgres (Drizzle ORM), Supabase, Better-Auth, REST/GraphQL) Tj
 0 -12 Td
 (- Media & Cinematography: DaVinci Resolve, Adobe Premiere, Photoshop, Motion Graphics, Viral YouTube Thumbnail Architecture) Tj
 0 -25 Td
@@ -49,7 +49,7 @@ BT
 /F1 9 Tf
 (- Architected and engineered hardware-accelerated 3D spatial web applications with Next.js 16 and Three.js.) Tj
 0 -12 Td
-(- Built sub-50ms caching pipelines using Supabase relational databases and Next.js Incremental Static Regeneration.) Tj
+(- Built sub-50ms caching pipelines using Cloudflare Workers, Neon PostgreSQL, and Next.js ISR.) Tj
 0 -18 Td
 /F2 10 Tf
 (Founder & Lead Creator - Anime Nation India | 2021 - Present) Tj
@@ -63,11 +63,13 @@ BT
 (FEATURED PRODUCTION BUILDS) Tj
 0 -15 Td
 /F1 9 Tf
+(- Otaku Insider: Next-Gen Anime Tracking Platform (Next.js 16, React 19, Cloudflare Workers, Neon Postgres, Drizzle, Better-Auth)) Tj
+0 -12 Td
 (- AniSpectra: 3D Spatial Audio & Anime Streaming Ecosystem (Next.js, Three.js, Tailwind CSS)) Tj
 0 -12 Td
-(- SVK Downloader: High-performance stream processing web utility with real-time UI) Tj
+(- ANI Media Online: Full-Stack Anime Database & Watchlist Platform (Next.js, Supabase, GraphQL)) Tj
 0 -12 Td
-(- 3D Physical Showroom: Hardware-accelerated WebGL product showcase with dynamic lighting) Tj
+(- SVK Downloader: High-performance stream processing web utility with real-time UI) Tj
 0 -25 Td
 /F2 12 Tf
 (EDUCATION & CREDENTIALS) Tj
@@ -83,17 +85,8 @@ endobj
 6 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
-xref
-0 7
-0000000000 65535 f 
-0000000009 00000 n 
-0000000056 00000 n 
-0000000111 00000 n 
-0000000244 00000 n 
-0000001676 00000 n 
-0000001743 00000 n 
 trailer
 << /Size 7 /Root 1 0 R >>
 startxref
-1815
+1900
 %%EOF
