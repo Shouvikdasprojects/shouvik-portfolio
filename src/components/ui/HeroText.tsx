@@ -129,12 +129,25 @@ export default function HeroText({ name, bio }: HeroTextProps) {
       </motion.h1>
 
       {/* Bio */}
-      <motion.p
+      <motion.div
         variants={itemVariants}
-        className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl"
+        className="relative p-5 rounded-2xl bg-white/[0.025] border border-white/6 backdrop-blur-sm"
       >
-        {bio}
-      </motion.p>
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent rounded-t-2xl" />
+        <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+          An innovative{' '}
+          <span className="text-white font-semibold">UI/UX Architect</span>,{' '}
+          <span className="text-white font-semibold">Web3D Developer</span>, and{' '}
+          <span className="text-white font-semibold">digital media director</span>{' '}
+          from India. I specialize in building ultra-performant, hardware-accelerated{' '}
+          <span className="text-primary/90">spatial web experiences</span>{' '}
+          powered by Next.js, Three.js, and bespoke design systems. Beyond engineering, I orchestrate a{' '}
+          <span className="text-primary/90">25,000+ follower</span>{' '}
+          creator ecosystem — directing immersive{' '}
+          <span className="text-secondary/90">anime storytelling</span>{' '}
+          and visual media. An avid connoisseur of Manga, Manhwa, and international gastronomy.
+        </p>
+      </motion.div>
     </motion.div>
   );
 }

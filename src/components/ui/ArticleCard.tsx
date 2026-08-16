@@ -122,8 +122,18 @@ export default function ArticleCard({ article }: ArticleCardProps) {
     }
   };
 
+  // Category color mapping for left border accent
+  const categoryColor: Record<string, string> = {
+    'Technology': 'border-l-cyan-500/60',
+    'Science': 'border-l-emerald-500/60',
+    'Anime': 'border-l-pink-500/60',
+    'Entertainment': 'border-l-amber-500/60',
+    'Global Innovations': 'border-l-purple-500/60',
+  };
+  const borderAccent = categoryColor[article.category] || 'border-l-primary/60';
+
   return (
-    <div className="glass-panel flex flex-col h-full bg-[#0b0814]/40 border-white/5 overflow-hidden group transition-all duration-300 hover:scale-[1.01]">
+    <div className={`glass-panel flex flex-col h-full bg-[#0b0814]/40 border-white/5 border-l-4 ${borderAccent} overflow-hidden group transition-all duration-300 hover:scale-[1.01]`}>
       {/* 1. Article Cover Image */}
       <div className="relative w-full h-48 rounded-t-xl overflow-hidden bg-slate-900 border-b border-white/5">
         {/* eslint-disable-next-line @next/next/no-img-element */}

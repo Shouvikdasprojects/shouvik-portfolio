@@ -168,12 +168,24 @@ export default function Footer() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="border-t border-gray-800/50 pt-8 mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-mono">
-          <p>© {new Date().getFullYear()} Shouvik Das. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/resume" className="hover:text-primary transition-colors">Executive Resume</Link>
-            <Link href="/articles" className="hover:text-primary transition-colors">Tech Discover Blog</Link>
-            <a href="https://heylink.me/ShouvikDas/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors flex items-center gap-0.5"><Globe size={10} /> heylink.me/ShouvikDas</a>
+        <div className="relative pt-8 mt-12">
+          {/* Gradient separator */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 font-mono">
+            <div className="flex items-center gap-3">
+              <span className="flex items-center gap-1.5 text-emerald-400 text-[10px]">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                SYSTEM ONLINE
+              </span>
+              <span>|</span>
+              <p>© {new Date().getFullYear()} Shouvik Das. All rights reserved.</p>
+            </div>
+            <div className="flex gap-6">
+              <Link href="/resume" className="hover:text-primary transition-colors">Executive Resume</Link>
+              <Link href="/articles" className="hover:text-primary transition-colors">Discovery Blog</Link>
+              <a href="https://heylink.me/ShouvikDas/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors flex items-center gap-0.5"><Globe size={10} /> heylink.me/ShouvikDas</a>
+            </div>
           </div>
         </div>
 

@@ -174,49 +174,33 @@ export default async function Portfolio() {
         </div>
       </section>
 
-      {/* 2. LIVE METRICS & STATS HUD BAR (Standout Futuristic Feature!) */}
-      <section className="relative z-20 py-8 bg-[#060410]/80 border-b border-white/5">
+      {/* 2. LIVE METRICS & STATS HUD BAR */}
+      <section className="relative z-20 py-10 bg-[#04020a]/90 border-b border-white/5 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                <Users size={20} />
+          {/* Live status badge */}
+          <div className="flex items-center justify-center mb-6">
+            <span className="flex items-center gap-2 text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/8 border border-emerald-500/20 px-3 py-1.5 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              LIVE CREATOR METRICS
+            </span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {[
+              { icon: Users, value: '25K+', label: 'Audience & Subscribers', color: 'text-primary', bg: 'bg-primary/10', border: 'border-primary/20' },
+              { icon: Layers, value: '8+', label: 'Production Builds Shipped', color: 'text-secondary', bg: 'bg-secondary/10', border: 'border-secondary/20' },
+              { icon: Activity, value: '12+', label: 'Creator Touchpoints', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
+              { icon: Zap, value: '<50ms', label: 'ISR & Web3D Latency', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
+            ].map(({ icon: Icon, value, label, color, bg, border }, i) => (
+              <div key={i} className={`stats-card-ring flex items-center gap-4 p-5 rounded-2xl bg-white/[0.025] border border-white/6 hover:bg-white/[0.04] transition-all duration-300 group`}>
+                <div className={`w-12 h-12 rounded-xl ${bg} ${border} border flex items-center justify-center ${color} shrink-0 group-hover:scale-110 transition-transform`}>
+                  <Icon size={20} />
+                </div>
+                <div>
+                  <span className={`text-2xl sm:text-3xl font-black font-mono block ${color}`}>{value}</span>
+                  <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wide leading-tight block mt-0.5">{label}</span>
+                </div>
               </div>
-              <div>
-                <span className="text-2xl sm:text-3xl font-black text-white font-mono block">25,000+</span>
-                <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider">Audience & Subscribers</span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary shrink-0">
-                <Layers size={20} />
-              </div>
-              <div>
-                <span className="text-2xl sm:text-3xl font-black text-white font-mono block">7+</span>
-                <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider">Shipped Production Builds</span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
-                <Activity size={20} />
-              </div>
-              <div>
-                <span className="text-2xl sm:text-3xl font-black text-white font-mono block">12+</span>
-                <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider">Active Creator Touchpoints</span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
-                <Zap size={20} />
-              </div>
-              <div>
-                <span className="text-2xl sm:text-3xl font-black text-white font-mono block">&lt;50ms</span>
-                <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider">ISR & Web3D Latency</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -456,65 +440,42 @@ export default async function Portfolio() {
         </div>
       </section>
 
-      {/* 5. LATEST UPLOADS & ACTIVITIES FEED */}
-      <section className="py-24 relative overflow-hidden bg-transparent border-b border-white/5">
-        <div className="ambient-glow top-1/2 -left-48 bg-secondary/10 pointer-events-none" />
+      {/* 5. CONTENT STREAM CTA */}
+      <section className="py-16 relative overflow-hidden bg-transparent border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-r from-[#0d0820] via-[#0a0618] to-[#0d0820] border border-primary/15 overflow-hidden">
+            {/* Glow accents */}
+            <div className="absolute -top-20 -left-20 w-48 h-48 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-16">
-            <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3">
-              <span className="text-xs font-bold text-primary font-mono uppercase tracking-widest animate-pulse">REAL-TIME ACTIVITY</span>
-              <h2 className="text-3xl md:text-5xl font-black text-white leading-none">
-                Latest <span className="gradient-text-primary">Uploads Stream</span>
-              </h2>
-              <div className="w-20 h-[3px] bg-gradient-to-r from-primary to-secondary rounded-full mt-2" />
-            </div>
-
-            <Link 
-              href="/uploads" 
-              className="px-6 py-2.5 rounded-xl border border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary/20 text-white font-bold text-xs tracking-wider transition-all duration-300 flex items-center gap-1.5 group cursor-pointer"
-            >
-              SEE ALL UPLOADS <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {homeUploads.map((post, idx) => (
-              <GlassCard key={idx} className="flex flex-col h-full bg-[#0b0814]/40 border-white/5 p-4 hover:scale-[1.02] transition-transform rounded-2xl">
-                <div className="relative w-full h-36 rounded-xl overflow-hidden mb-4 bg-slate-900 border border-white/5">
-                  <SafeImage 
-                    src={post.imageUrl} 
-                    alt={post.title} 
-                    className="w-full h-full object-cover" 
-                    fallbackSrc={post.source.includes("Anime Nation India") ? "/assets/animenation.jpg" : "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600&auto=format&fit=crop&q=60"}
-                  />
-                  <div className="absolute top-2 left-2 bg-black/60 backdrop-blur-md text-[8px] font-bold font-mono px-2 py-0.5 rounded text-white flex items-center gap-0.5">
-                    {post.type === 'Video' || post.type === 'Vlog' ? <Film size={8} className="text-red-500" /> : <ImageIcon size={8} className="text-primary" />}
-                    {post.type.toUpperCase()}
-                  </div>
-                </div>
-
-                <h4 className="font-bold text-white text-sm line-clamp-1 mb-1">{post.title}</h4>
-                <span className="text-[9px] font-mono text-primary font-bold uppercase block mb-3">{post.source}</span>
-                
-                <p className="text-gray-400 text-xs line-clamp-2 leading-relaxed mb-4 flex-grow">
-                  {post.description}
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="text-center md:text-left">
+                <span className="text-xs font-bold text-primary font-mono uppercase tracking-widest flex items-center gap-2 justify-center md:justify-start mb-2">
+                  <Film size={12} className="text-primary" /> CONTENT STREAM
+                </span>
+                <h2 className="text-2xl md:text-3xl font-black text-white mb-2">
+                  Latest <span className="gradient-text-primary">Uploads & Activity</span>
+                </h2>
+                <p className="text-gray-400 text-sm max-w-lg leading-relaxed">
+                  Reels, vlogs, anime edits, thumbnails, and creative uploads live across YouTube, Instagram & Facebook — updated in real-time.
                 </p>
-
-                <a 
-                  href={post.url || "/uploads"} 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="w-full py-2 text-center text-[10px] font-bold rounded-xl bg-primary/10 hover:bg-primary text-white flex items-center justify-center gap-1 transition-all cursor-pointer"
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                <Link 
+                  href="/uploads" 
+                  className="px-7 py-3 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold text-xs tracking-wider transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(255,0,127,0.35)] cursor-pointer whitespace-nowrap"
                 >
-                  View Activity <ExternalLink size={10} />
-                </a>
-              </GlassCard>
-            ))}
+                  View All Uploads <ArrowRight size={14} />
+                </Link>
+                <Link 
+                  href="/socials" 
+                  className="px-7 py-3 rounded-xl border border-white/15 hover:border-primary/50 bg-white/5 hover:bg-primary/10 text-white font-bold text-xs tracking-wider transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap"
+                >
+                  All Creator Channels <ExternalLink size={14} />
+                </Link>
+              </div>
+            </div>
           </div>
-
         </div>
       </section>
 
