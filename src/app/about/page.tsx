@@ -179,6 +179,70 @@ export default function AboutPage() {
 
           </div>
 
+          {/* ── Creative Journey Timeline ── */}
+          <div className="border-t border-white/5 pt-20 mb-20">
+            <div className="flex flex-col items-center text-center mb-14 gap-3">
+              <span className="text-xs font-bold text-primary font-mono uppercase tracking-widest">MY JOURNEY</span>
+              <h2 className="text-3xl md:text-4xl font-black text-white">
+                The <span className="gradient-text-primary">Creative Timeline</span>
+              </h2>
+              <div className="w-16 h-[2.5px] bg-primary rounded-full mt-1" />
+            </div>
+            
+            <div className="relative max-w-3xl mx-auto">
+              {/* Vertical line */}
+              <div className="absolute left-[15px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-primary/70 via-secondary/40 to-transparent" />
+              
+              <div className="flex flex-col gap-10 pl-10">
+                {[
+                  {
+                    year: '2024–Now',
+                    title: 'Spatial Web3D Developer & Full-Stack Creator',
+                    desc: 'Building production-grade Next.js 16 + Three.js applications deployed on Cloudflare Workers edge, Vercel, and Netlify. Architecting Otaku Insider, AniSpectra, ANI Media Online.',
+                    color: 'text-primary',
+                    dot: 'bg-primary shadow-[0_0_12px_rgba(255,0,127,0.8)]',
+                  },
+                  {
+                    year: '2023–2024',
+                    title: 'UI/UX Architect & Content Ecosystem Builder',
+                    desc: 'Expanded into professional UI/UX architecture with Figma, React, and advanced CSS animation systems. Grew Anime Nation India to 25K+ followers across platforms.',
+                    color: 'text-secondary',
+                    dot: 'bg-secondary shadow-[0_0_10px_rgba(139,92,246,0.7)]',
+                  },
+                  {
+                    year: '2022–2023',
+                    title: 'YouTube Content Creator & Anime Storyteller',
+                    desc: 'Launched 4+ active YouTube channels dedicated to anime explanations, manga breakdowns, visual edits, and travel vlogs. Built a dedicated otaku community in India.',
+                    color: 'text-accent',
+                    dot: 'bg-accent shadow-[0_0_10px_rgba(14,165,233,0.7)]',
+                  },
+                  {
+                    year: '2021–2022',
+                    title: 'Frontend Developer & Digital Explorer',
+                    desc: 'Started the coding journey with React.js, REST APIs, and custom CSS. Built first anime tracking platform AniOtakuMedia. Fell in love with immersive UI design.',
+                    color: 'text-emerald-400',
+                    dot: 'bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.6)]',
+                  },
+                ].map((item, i) => (
+                  <div key={i} className="relative">
+                    {/* Dot */}
+                    <div className={`absolute -left-[30px] top-1.5 w-3 h-3 rounded-full ${item.dot} border-2 border-[#040209] z-10`} />
+                    
+                    <div className="bg-white/[0.025] border border-white/6 rounded-2xl p-6 hover:border-primary/20 hover:bg-white/[0.04] transition-all duration-300">
+                      <div className="flex flex-wrap items-center gap-3 mb-2">
+                        <span className={`text-xs font-mono font-bold ${item.color} bg-white/5 border border-white/8 px-2.5 py-1 rounded-full`}>
+                          {item.year}
+                        </span>
+                        <h3 className="text-white font-bold text-base">{item.title}</h3>
+                      </div>
+                      <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Social Platforms & Pages Directory */}
           <div className="border-t border-white/5 pt-20">
             <div className="flex flex-col items-center text-center mb-16 gap-3">

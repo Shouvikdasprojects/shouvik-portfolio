@@ -10,6 +10,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import SafeImage from '@/components/ui/SafeImage';
+import TechStack from '@/components/TechStack';
 import { personalInfo, projectsList, socialLinks as baseSocials, youtubeChannels as baseYoutube, recentUploadsList as baseUploads } from '@/lib/realData';
 import { getArticles, getSocialStats, getSocialPosts } from '@/lib/db';
 import { 
@@ -24,7 +25,10 @@ import {
   Layers,
   Users,
   Activity,
-  Zap
+  Zap,
+  Code2,
+  Globe,
+  Box
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -145,9 +149,34 @@ export default async function Portfolio() {
               </div>
             </div>
 
-            {/* Right Column: 3D Interactive Profile Card */}
-            <div className="lg:col-span-5 order-first lg:order-last flex items-center justify-center">
+            {/* Right Column: 3D Interactive Profile Card + floating tech badges */}
+            <div className="lg:col-span-5 order-first lg:order-last flex items-center justify-center relative">
               <ProfileTiltCard avatarUrl={personalInfo.avatarUrl} name={personalInfo.name} />
+
+              {/* Floating tech badge chips — orbit around the card */}
+              <div className="absolute inset-0 pointer-events-none hidden lg:block">
+                {[
+                  { label: 'Next.js 16', color: 'bg-white/8 border-white/15 text-white', top: '8%', left: '-8%', icon: '▲', delay: '0s' },
+                  { label: 'Three.js', color: 'bg-white/8 border-white/15 text-emerald-300', top: '18%', right: '-10%', icon: '◆', delay: '-1.5s' },
+                  { label: 'React 19', color: 'bg-cyan-500/10 border-cyan-500/25 text-cyan-300', bottom: '30%', left: '-12%', icon: '⚛', delay: '-3s' },
+                  { label: 'Tailwind', color: 'bg-sky-500/10 border-sky-500/25 text-sky-300', bottom: '12%', right: '-8%', icon: '✦', delay: '-4.2s' },
+                ].map((badge) => (
+                  <div
+                    key={badge.label}
+                    className={`orbit-badge absolute flex items-center gap-1.5 px-3 py-1.5 rounded-full ${badge.color} border backdrop-blur-md text-[10px] font-mono font-bold whitespace-nowrap shadow-lg`}
+                    style={{
+                      top: badge.top,
+                      left: (badge as { left?: string }).left,
+                      right: (badge as { right?: string }).right,
+                      bottom: badge.bottom,
+                      animationDelay: badge.delay,
+                    }}
+                  >
+                    <span className="text-xs">{badge.icon}</span>
+                    {badge.label}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -557,25 +586,76 @@ export default async function Portfolio() {
         </div>
       </section>
 
-      {/* 7. CONTACT / LET'S BUILD SOMETHING EPIC */}
+      {/* 7. TECH STACK SHOWCASE */}
+      <div className="section-divider" />
+      <TechStack />
+
+      {/* 8. CONTACT / LET'S BUILD SOMETHING EPIC */}
       <section id="contact" className="py-24 relative overflow-hidden bg-transparent border-t border-white/5">
-        <div className="ambient-glow top-1/2 -right-48 bg-primary/10 pointer-events-none" />
-        <div className="max-w-3xl mx-auto px-6 relative z-10">
+        <div className="ambient-glow top-1/2 -left-48 bg-primary/10 pointer-events-none" />
+        <div className="ambient-glow bottom-0 -right-48 bg-secondary/8 pointer-events-none" />
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
 
           {/* Title */}
-          <div className="flex flex-col items-center text-center mb-16 gap-3">
+          <div className="flex flex-col items-center text-center mb-14 gap-3">
             <span className="text-xs font-bold text-primary font-mono uppercase tracking-widest animate-pulse">GET IN TOUCH</span>
             <h2 className="text-3xl md:text-5xl font-black text-white leading-none">
-              Let's Build <span className="gradient-text-glow">Something Epic</span>
+              Let&apos;s Build <span className="gradient-text-glow">Something Epic</span>
             </h2>
-            <p className="text-gray-400 text-sm max-w-md mt-2">
-              Have a project in mind, want to collaborate, or just want to talk tech? Drop a message below and I will get back to you!
+            <p className="text-gray-400 text-sm max-w-md mt-1 leading-relaxed">
+              Have a project in mind, want to collaborate, or just want to talk tech? Drop a message below!
             </p>
             <div className="w-20 h-[3px] bg-gradient-to-r from-primary via-accent to-secondary rounded-full mt-2" />
           </div>
 
-          {/* Form */}
-          <ContactForm />
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
+            {/* Left Info Panel */}
+            <div className="lg:col-span-2 flex flex-col gap-6">
+              {/* Quick contact cards */}
+              {[
+                { icon: '📧', label: 'Email', value: 'shouvikdaswork@gmail.com', href: 'mailto:shouvikdaswork@gmail.com', color: 'border-primary/20 hover:border-primary/50' },
+                { icon: '📍', label: 'Location', value: 'West Bengal, India', href: null, color: 'border-white/8 hover:border-white/15' },
+                { icon: '🔗', label: 'HeyLink Hub', value: 'heylink.me/ShouvikDas', href: 'https://heylink.me/ShouvikDas/', color: 'border-emerald-500/20 hover:border-emerald-500/40' },
+              ].map((item) => (
+                <div key={item.label} className={`p-5 rounded-2xl bg-white/[0.025] border ${item.color} transition-all duration-300 flex items-center gap-4`}>
+                  <span className="text-2xl shrink-0">{item.icon}</span>
+                  <div className="min-w-0">
+                    <span className="text-[9px] font-mono font-bold text-gray-500 uppercase tracking-widest block">{item.label}</span>
+                    {item.href ? (
+                      <a href={item.href} className="text-white hover:text-primary text-sm font-semibold transition-colors truncate block" target="_blank" rel="noreferrer">{item.value}</a>
+                    ) : (
+                      <span className="text-white text-sm font-semibold block">{item.value}</span>
+                    )}
+                  </div>
+                </div>
+              ))}
+
+              {/* Availability badge */}
+              <div className="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+                  </span>
+                  <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">Open for Projects</span>
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Currently accepting Web3D development, UI/UX architecture, and anime content partnerships.
+                </p>
+              </div>
+
+              {/* Response time */}
+              <div className="text-center p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+                <span className="text-2xl font-black text-primary font-mono">&lt;24h</span>
+                <p className="text-gray-500 text-[10px] font-mono uppercase tracking-wider mt-1">Average Response Time</p>
+              </div>
+            </div>
+
+            {/* Right: Form */}
+            <div className="lg:col-span-3">
+              <ContactForm />
+            </div>
+          </div>
 
         </div>
       </section>

@@ -538,3 +538,153 @@ body::before {
 .fade-up-delay-1 { animation-delay: 0.1s; }
 .fade-up-delay-2 { animation-delay: 0.2s; }
 .fade-up-delay-3 { animation-delay: 0.3s; }
+
+/* =====================================================
+   SPOTLIGHT CURSOR GLOW
+   ===================================================== */
+
+.cursor-spotlight {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9998;
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle closest-side,
+    rgba(255, 0, 127, 0.04) 0%,
+    rgba(139, 92, 246, 0.025) 40%,
+    transparent 70%
+  );
+  transition: transform 0.08s ease-out, opacity 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+/* =====================================================
+   SCROLL REVEAL ANIMATIONS
+   ===================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* =====================================================
+   PREMIUM GRADIENT BORDER CARDS
+   ===================================================== */
+
+.gradient-border-card {
+  position: relative;
+  border-radius: 1.25rem;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,0,127,0.3), rgba(139,92,246,0.2), rgba(14,165,233,0.2));
+  transition: all 0.4s ease;
+}
+.gradient-border-card:hover {
+  background: linear-gradient(135deg, rgba(255,0,127,0.6), rgba(139,92,246,0.5), rgba(14,165,233,0.4));
+  box-shadow: 0 0 35px rgba(255,0,127,0.2), 0 0 70px rgba(139,92,246,0.1);
+}
+.gradient-border-card > * {
+  border-radius: calc(1.25rem - 1px);
+}
+
+/* =====================================================
+   PROJECT CARD PREMIUM OVERLAY
+   ===================================================== */
+
+.project-card-premium {
+  position: relative;
+  overflow: hidden;
+}
+.project-card-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255,0,127,0.0) 0%,
+    rgba(139,92,246,0.0) 100%
+  );
+  transition: background 0.5s ease;
+  z-index: 0;
+  border-radius: inherit;
+}
+.project-card-premium:hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255,0,127,0.06) 0%,
+    rgba(139,92,246,0.06) 100%
+  );
+}
+
+/* =====================================================
+   SECTION DIVIDER
+   ===================================================== */
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,0,127,0.25), rgba(139,92,246,0.2), transparent);
+}
+
+/* =====================================================
+   AVAILABILITY BADGE PULSE
+   ===================================================== */
+
+@keyframes availability-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(52,211,153,0); }
+  100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
+}
+
+.availability-ring {
+  animation: availability-ring 2s ease-out infinite;
+}
+
+/* =====================================================
+   TIMELINE (ABOUT PAGE)
+   ===================================================== */
+
+.timeline-node {
+  position: relative;
+}
+.timeline-node::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: hsl(342 100% 50%);
+  box-shadow: 0 0 12px rgba(255,0,127,0.7);
+  border: 2px solid rgba(255,0,127,0.2);
+  z-index: 2;
+}
+
+/* =====================================================
+   FLOATING BADGE (HERO)
+   ===================================================== */
+
+@keyframes orbit-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%        { transform: translateY(-8px) rotate(2deg); }
+  66%        { transform: translateY(4px) rotate(-1deg); }
+}
+
+.orbit-badge {
+  animation: orbit-float 5s ease-in-out infinite;
+}
+.orbit-badge:nth-child(2) { animation-delay: -1.5s; }
+.orbit-badge:nth-child(3) { animation-delay: -3s; }
+.orbit-badge:nth-child(4) { animation-delay: -4.2s; }

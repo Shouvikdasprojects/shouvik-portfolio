@@ -5,13 +5,34 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import TiltCard from '@/components/ui/TiltCard';
 import { projectsList as staticProjects } from '@/lib/realData';
-import { ExternalLink, Sparkles, X, CheckCircle2, Layers, Cpu, Database, Terminal, Globe, ChevronRight } from 'lucide-react';
+import { ExternalLink, Sparkles, X, CheckCircle2, Layers, Cpu, Database, Terminal, Globe, ChevronRight, Filter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { sfx } from '@/lib/soundEffects';
+
+const FILTER_TABS = [
+  { label: 'All', key: 'all' },
+  { label: '🌐 Web3D', key: 'web3d' },
+  { label: '⚛ Frontend', key: 'frontend' },
+  { label: '🎌 Anime', key: 'anime' },
+  { label: '🛠 Tools', key: 'tools' },
+];
+
+function matchFilter(project: typeof staticProjects[number], key: string): boolean {
+  if (key === 'all') return true;
+  const titleLower = project.title.toLowerCase();
+  const descLower = project.description.toLowerCase();
+  const stackLower = project.techStack.join(' ').toLowerCase();
+  if (key === 'anime') return titleLower.includes('ani') || titleLower.includes('otaku') || titleLower.includes('manga') || descLower.includes('anime');
+  if (key === 'web3d') return stackLower.includes('three') || stackLower.includes('webgl') || stackLower.includes('r3f') || stackLower.includes('3d') || titleLower.includes('nexus');
+  if (key === 'tools') return titleLower.includes('downloader') || titleLower.includes('aether') || titleLower.includes('svk');
+  if (key === 'frontend') return stackLower.includes('next') || stackLower.includes('react') || stackLower.includes('typescript');
+  return true;
+}
 
 export default function ProjectsClient() {
   const [projects, setProjects] = useState<typeof staticProjects>(staticProjects);
   const [selectedProject, setSelectedProject] = useState<typeof staticProjects[number] | null>(null);
+  const [activeFilter, setActiveFilter] = useState('all');
 
   // Fetch dynamic projects from API
   useEffect(() => {
@@ -48,6 +69,8 @@ export default function ProjectsClient() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  const filteredProjects = projects.filter(p => matchFilter(p, activeFilter));
+
   return (
     <>
       <Navbar />
@@ -60,9 +83,9 @@ export default function ProjectsClient() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           
           {/* Header */}
-          <div className="flex flex-col items-center text-center mb-16 gap-3">
+          <div className="flex flex-col items-center text-center mb-10 gap-3">
             <span className="text-xs font-bold text-primary font-mono tracking-widest uppercase animate-pulse">
-              CREATIVE BUILDS & DESIGNS
+              CREATIVE BUILDS &amp; DESIGNS
             </span>
             <h1 className="text-4xl md:text-5xl font-black text-white leading-tight">
               My Featured <span className="gradient-text-primary">Applications</span>
@@ -73,9 +96,52 @@ export default function ProjectsClient() {
             <div className="w-20 h-[3px] bg-gradient-to-r from-primary to-secondary rounded-full mt-2" />
           </div>
 
+          {/* Stats bar */}
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
+            {[
+              { value: `${projects.length}`, label: 'Total Projects' },
+              { value: `${projects.filter(p => p.featured).length}`, label: 'Featured' },
+              { value: '8+', label: 'Tech Stacks Used' },
+              { value: '100%', label: 'Production Ready' },
+            ].map((stat) => (
+              <div key={stat.label} className="flex items-center gap-2 text-xs font-mono">
+                <span className="text-primary font-black text-base">{stat.value}</span>
+                <span className="text-gray-500">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+            <Filter size={12} className="text-gray-500 mr-1" />
+            {FILTER_TABS.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => { sfx.playClick(); setActiveFilter(tab.key); }}
+                onMouseEnter={() => sfx.playHover()}
+                className={`px-4 py-2 rounded-full text-xs font-bold font-mono border transition-all duration-300 cursor-pointer ${
+                  activeFilter === tab.key
+                    ? 'bg-primary border-primary text-white shadow-[0_0_15px_rgba(255,0,127,0.4)]'
+                    : 'bg-white/5 border-white/10 text-gray-400 hover:border-primary/40 hover:text-white'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+            <span className="text-[10px] text-gray-600 font-mono ml-2">{filteredProjects.length} found</span>
+          </div>
+
           {/* Grid Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, idx) => (
+            <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, idx) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3, delay: idx * 0.06 }}
+              >
               <TiltCard key={idx} className="flex flex-col h-full bg-[#0b0814]/40 border-white/5 p-6 rounded-2xl group">
                 <div className="relative w-full h-48 rounded-xl overflow-hidden mb-6 bg-slate-900 border border-white/5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -167,7 +233,9 @@ export default function ProjectsClient() {
                   )}
                 </div>
               </TiltCard>
+              </motion.div>
             ))}
+            </AnimatePresence>
           </div>
 
         </div>
