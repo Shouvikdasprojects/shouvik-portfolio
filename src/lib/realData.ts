@@ -373,10 +373,31 @@ export const projectsList = [
   {
     title: "SVK Downloader",
     description: "An advanced, high-performance video and audio downloading tool. Safely intercepts and extracts streams from YouTube, Instagram, X (Twitter), and TikTok into crisp MP4 and MP3 formats at high speeds.",
-    techStack: ["Next.js", "Tailwind CSS", "API Routing", "Stream Piping", "FFmpeg"],
+    techStack: ["Next.js 16", "React 19", "Tailwind CSS v4", "Edge Runtime", "Stream Piping", "REST APIs"],
     imageUrl: "https://images.unsplash.com/photo-1584438784894-089d6a128f3e?w=800&auto=format&fit=crop&q=80",
-    demoUrl: "https://heylink.me/ShouvikDas/", // Replace with active project URL or HeyLink tree
-    featured: true
+    demoUrl: "https://github.com/Shouvikdasprojects",
+    featured: true,
+    details: {
+      tagline: "Universal Hardware-Accelerated Video, Audio & Media Stream Extractor.",
+      overview: "SVK Downloader is an ultra-fast, universal media extraction engine engineered with Next.js 16 and React 19. Designed for content creators, researchers, and media professionals, it features an intelligent provider classifier that automatically detects links from YouTube, Instagram Reels, TikTok, Twitter/X, and Facebook. It parses high-definition streams and proxies downloads directly to client browsers without ads, third-party redirects, or CORS barriers.",
+      features: [
+        { title: "Universal Platform Classifier", desc: "Instantly recognizes and extracts metadata from YouTube Shorts, Instagram Reels, TikTok, Twitter/X videos, and direct media streams." },
+        { title: "1080p MP4 & 320kbps MP3 Profiles", desc: "Offers selectable video resolutions (1080p, 720p, 480p) and dedicated audio stream extraction at 320kbps quality." },
+        { title: "Edge Stream Piping Proxy", desc: "Utilizes serverless edge stream handlers to bypass cross-origin browser constraints and deliver instant direct downloads." },
+        { title: "Local Session History", desc: "Maintains a client-side localStorage history queue allowing users to recall and re-download recent media sessions offline." },
+        { title: "1-Click Clipboard Detection", desc: "Smart paste input bar with auto-validation and real-time visual platform badge indicators." }
+      ],
+      techStack: {
+        frontend: ["Next.js 16 (App Router)", "React 19", "TypeScript", "Tailwind CSS v4", "Lucide React", "Framer Motion"],
+        backend: ["Next.js Edge API Routes", "Serverless Stream Piping", "Universal Media Parser"],
+        deployment: ["Vercel", "Cloudflare Workers (OpenNext)", "GitHub CI/CD"]
+      },
+      achievements: [
+        "Zero-Ad Stream Architecture: Engineered direct stream piping that eliminates unwanted popups, external redirects, and malicious download buttons.",
+        "Edge-Native Performance: Built with Next.js Edge runtime, ensuring sub-50ms extraction and instant response times globally.",
+        "Full Standalone Repository: Packaged as a clean, modular repository with zero binary dependencies, ready for instant Cloudflare and Vercel deployments."
+      ]
+    }
   },
   {
     title: "Project Nexus 3D",
