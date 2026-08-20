@@ -290,31 +290,32 @@ export default function ResumeClient() {
               </div>
             </div>
 
-            {/* 6. Education & Languages */}
+            {/* 6. Technical Focus & Languages */}
             <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <h2 className="text-xs font-mono font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
-                  <GraduationCap size={14} /> Education & Verified Credentials
+                  <Sparkles size={14} /> Specialized Technical Focus
                 </h2>
-                <div className="space-y-2">
-                  <div>
-                    <h3 className="text-sm font-bold text-white print:text-black">Bachelor of Computer Applications (BCA)</h3>
-                    <span className="text-xs font-mono text-gray-400 print:text-slate-600">West Bengal, India</span>
+                <div className="space-y-3">
+                  <div className="border-l-2 border-primary/40 pl-3">
+                    <h3 className="text-sm font-bold text-white print:text-black">Hardware-Accelerated Web3D</h3>
+                    <p className="text-xs text-primary font-mono">Three.js, WebGL Shaders &amp; React Three Fiber</p>
+                    <span className="text-[11px] font-mono text-gray-400 print:text-slate-600">Sub-50ms Edge Performance &amp; Next.js 16</span>
                   </div>
-                  <div>
-                    <h3 className="text-xs font-bold text-gray-200 print:text-slate-800">Web3D & Modern UI/UX Architecture Certification</h3>
-                    <span className="text-[10px] font-mono text-gray-500 print:text-slate-500">Interactive Spatial Development & Three.js</span>
+                  <div className="border-l-2 border-secondary/40 pl-3">
+                    <h3 className="text-xs font-bold text-gray-200 print:text-slate-800">Design Systems &amp; Motion Architecture</h3>
+                    <span className="text-[10px] font-mono text-gray-400 print:text-slate-500">Figma, Glassmorphism, Micro-Interactions &amp; Framer Motion</span>
                   </div>
                 </div>
               </div>
 
               <div>
                 <h2 className="text-xs font-mono font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
-                  <Globe size={14} /> Languages & Passions
+                  <Globe size={14} /> Languages &amp; Passions
                 </h2>
                 <div className="space-y-1.5 text-xs text-gray-300 print:text-slate-800">
                   <p><strong className="text-white print:text-black">Languages:</strong> English (Professional), Hindi, Bengali (Native)</p>
-                  <p><strong className="text-white print:text-black">Interests:</strong> Travel Cinematography, Manga & Anime Lore, Spatial Interfaces, World Cuisines</p>
+                  <p><strong className="text-white print:text-black">Interests:</strong> Travel Cinematography, Manga &amp; Anime Lore, Spatial Interfaces, World Cuisines</p>
                 </div>
               </div>
             </div>

@@ -1,5 +1,14 @@
 import { MetadataRoute } from 'next';
 import { getArticles } from '@/lib/db';
+import { projectsList } from '@/lib/realData';
+
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://shouvikdasportfolio.qzz.io';
@@ -9,6 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '',
     '/about',
     '/projects',
+    '/resume',
     '/socials',
     '/articles',
     '/uploads',
@@ -20,7 +30,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === '' || route === '/articles' || route === '/uploads' ? 'daily' as const : 'weekly' as const,
-    priority: route === '' ? 1.0 : route === '/contact' ? 0.9 : 0.8,
+    priority: route === '' ? 1.0 : route === '/resume' || route === '/contact' ? 0.9 : 0.8,
+  }));
+
+  // Dynamic project case study routes
+  const projectRoutes = projectsList.map((project) => ({
+    url: `${baseUrl}/projects/${generateSlug(project.title)}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
   }));
 
   try {
@@ -33,9 +51,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     }));
 
-    return [...staticRoutes, ...articleRoutes];
+    return [...staticRoutes, ...projectRoutes, ...articleRoutes];
   } catch (error) {
-    console.error('Error generating sitemap for articles:', error);
-    return staticRoutes;
+    console.error('Error generating sitemap for dynamic content:', error);
+    return [...staticRoutes, ...projectRoutes];
   }
 }

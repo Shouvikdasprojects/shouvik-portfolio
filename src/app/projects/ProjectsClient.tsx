@@ -404,13 +404,20 @@ export default function ProjectsClient() {
               </div>
 
               {/* Footer Actions */}
-              <div className="relative z-10 flex flex-col sm:flex-row gap-4 border-t border-white/5 pt-6 mt-8">
+              <div className="relative z-10 flex flex-col sm:flex-row gap-3 border-t border-white/5 pt-6 mt-8">
                 <button 
                   onClick={() => setSelectedProject(null)}
-                  className="sm:w-32 py-3 text-center text-xs font-bold border border-white/10 hover:border-white/20 bg-white/5 text-white rounded-xl transition-all cursor-pointer"
+                  className="sm:w-28 py-3 text-center text-xs font-bold border border-white/10 hover:border-white/20 bg-white/5 text-white rounded-xl transition-all cursor-pointer"
                 >
-                  Close Spec
+                  Close
                 </button>
+                <a 
+                  href={`/projects/${selectedProject.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '')}`}
+                  onClick={() => setSelectedProject(null)}
+                  className="px-5 py-3 text-center text-xs font-bold border border-primary/40 hover:border-primary bg-primary/10 hover:bg-primary/20 text-white rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-[0_0_15px_rgba(255,0,127,0.2)]"
+                >
+                  Full Case Study <Sparkles size={13} className="text-primary" />
+                </a>
                 <a 
                   href={selectedProject.demoUrl || "#"} 
                   target="_blank" 

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Sparkles, X, Calendar, Mail } from 'lucide-react';
+import { sfx } from '@/lib/soundEffects';
 
 export default function HireWidget() {
   const [visible, setVisible] = useState(false);
@@ -19,7 +20,7 @@ export default function HireWidget() {
   if (!visible || dismissed) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
+    <div className="fixed bottom-20 right-6 z-40 flex flex-col items-end gap-3 pointer-events-none">
       {/* Expanded panel */}
       {expanded && (
         <div className="pointer-events-auto bg-[#0d0820]/95 backdrop-blur-xl border border-primary/30 rounded-2xl p-5 w-64 shadow-[0_0_40px_rgba(255,0,127,0.2)] animate-in fade-in slide-in-from-bottom-4 duration-300">
@@ -48,12 +49,16 @@ export default function HireWidget() {
             >
               <Mail size={12} /> Send a Message
             </Link>
-            <a
-              href="mailto:shouvikdaswork@gmail.com"
+            <button
+              onClick={() => {
+                sfx.playWarp();
+                setExpanded(false);
+                window.dispatchEvent(new CustomEvent('open-booking-modal'));
+              }}
               className="w-full py-2 rounded-xl border border-white/10 hover:border-primary/40 bg-white/5 hover:bg-white/10 text-white font-bold text-xs tracking-wider text-center flex items-center justify-center gap-1.5 transition-all cursor-pointer"
             >
-              <Calendar size={12} /> Book a Call
-            </a>
+              <Calendar size={12} className="text-cyan-400" /> Book a Call
+            </button>
           </div>
           <button
             onClick={() => setDismissed(true)}

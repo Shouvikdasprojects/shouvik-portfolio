@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Search, Volume2, VolumeX, Command } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Search, Volume2, VolumeX, Command, Calendar } from 'lucide-react';
 import { sfx } from '@/lib/soundEffects';
+import ThemeAccentSwitcher from '@/components/ThemeAccentSwitcher';
+import AmbientAudioPlayer from '@/components/AmbientAudioPlayer';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -25,36 +27,37 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    setIsMuted(sfx.getMuted());
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
 
+    setIsMuted(sfx.getMuted());
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const openCommandPalette = () => {
-    sfx.playWarp();
-    window.dispatchEvent(new CustomEvent('open-command-palette'));
-  };
 
   const toggleSound = () => {
     const next = sfx.toggleMute();
     setIsMuted(next);
   };
 
+  const openCommandPalette = () => {
+    sfx.playWarp();
+    window.dispatchEvent(new CustomEvent('open-command-palette'));
+  };
+
+  const openBookingModal = () => {
+    sfx.playWarp();
+    window.dispatchEvent(new CustomEvent('open-booking-modal'));
+  };
+
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          scrolled 
-            ? 'bg-[#040209]/92 backdrop-blur-[32px] border-b border-white/6 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.5)]' 
-            : 'bg-transparent py-6'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          {/* Glowing Brand Logo */}
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 transition-all duration-300 ${scrolled ? 'py-3' : 'py-5'}`}>
+          <nav className="glass-panel px-6 py-3 rounded-full flex items-center justify-between shadow-2xl relative border border-white/10 bg-[#080515]/80 backdrop-blur-xl">
+          
+          {/* Brand Logo */}
           <Link 
             href="/" 
             className="relative group flex items-center gap-2"
@@ -68,7 +71,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-7">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== '/' && pathname?.startsWith(link.href));
               
@@ -99,32 +102,34 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Right Action Hub: Command Palette + Sound FX + Hire Me CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Right Action Hub: Color Switcher + Ambient Audio + Cmd Palette + Book Call + Hire Me */}
+          <div className="hidden md:flex items-center gap-2.5">
+            {/* Cyber Accent Color Theme Switcher */}
+            <ThemeAccentSwitcher />
+
+            {/* Ambient Synth Audio Player */}
+            <AmbientAudioPlayer />
+
             {/* Command Palette Trigger */}
             <button
               onClick={openCommandPalette}
               onMouseEnter={() => sfx.playHover()}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400 hover:text-white text-xs font-mono transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400 hover:text-white text-xs font-mono transition-all cursor-pointer"
               title="Search & Commands (⌘K)"
             >
-              <Search size={13} className="text-primary" />
-              <span className="text-[11px] hidden xl:inline">Search...</span>
-              <kbd className="text-[9px] bg-black/40 px-1.5 py-0.5 rounded text-gray-400 border border-white/10">⌘K</kbd>
+              <Search size={12} className="text-primary" />
+              <kbd className="text-[9px] bg-black/40 px-1 py-0.5 rounded text-gray-400 border border-white/10">⌘K</kbd>
             </button>
 
-            {/* Sound Toggle */}
+            {/* 1-Click Book a Call Button */}
             <button
-              onClick={toggleSound}
+              onClick={openBookingModal}
               onMouseEnter={() => sfx.playHover()}
-              className={`p-2 rounded-xl border transition-all cursor-pointer ${
-                isMuted 
-                  ? 'bg-white/5 border-white/10 text-gray-500 hover:text-white' 
-                  : 'bg-primary/10 border-primary/30 text-primary shadow-[0_0_10px_rgba(255,0,127,0.2)]'
-              }`}
-              title={isMuted ? 'Turn Sound FX ON' : 'Mute Sound FX'}
+              className="px-3 py-1.5 rounded-xl border border-white/10 hover:border-primary/40 bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+              title="Schedule a 1-on-1 Discovery Call"
             >
-              {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} className="animate-pulse" />}
+              <Calendar size={12} className="text-cyan-400" />
+              <span className="hidden xl:inline">Book Call</span>
             </button>
 
             {/* Hire Me CTA */}
@@ -132,9 +137,9 @@ export default function Navbar() {
               href="/contact"
               onClick={() => sfx.playClick()}
               onMouseEnter={() => sfx.playHover()}
-              className="px-5 py-2 rounded-xl border border-primary/40 hover:border-primary bg-primary/10 hover:bg-primary text-white hover:text-white font-bold text-xs tracking-wider transition-all duration-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,0,127,0.35)] hover:shadow-[0_0_25px_rgba(255,0,127,0.6)] cursor-pointer neon-border"
+              className="px-4 py-1.5 rounded-xl border border-primary/40 hover:border-primary bg-primary/10 hover:bg-primary text-white hover:text-white font-bold text-xs tracking-wider transition-all duration-300 flex items-center gap-1 shadow-[0_0_15px_rgba(255,0,127,0.35)] hover:shadow-[0_0_25px_rgba(255,0,127,0.6)] cursor-pointer neon-border"
             >
-              HIRE ME <ArrowUpRight size={14} />
+              HIRE ME <ArrowUpRight size={13} />
             </Link>
           </div>
 
@@ -158,8 +163,9 @@ export default function Navbar() {
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
+    </header>
 
       {/* Mobile Drawer Menu */}
       <AnimatePresence>

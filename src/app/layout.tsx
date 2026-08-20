@@ -91,8 +91,10 @@ export const metadata: Metadata = {
 };
 
 import ScrollProgress from '@/components/ScrollProgress';
-import HireWidget from '@/components/HireWidget';
 import SpotlightCursor from '@/components/SpotlightCursor';
+import AIAssistant from '@/components/AIAssistant';
+import DeveloperTerminal from '@/components/DeveloperTerminal';
+import BookingModal from '@/components/BookingModal';
 
 export default function RootLayout({
   children,
@@ -203,8 +205,14 @@ export default function RootLayout({
         <CommandPalette />
         <FloatingActionDock />
 
-        {/* Available for Hire floating widget */}
-        <HireWidget />
+        {/* 1-Click Meeting / Discovery Call Booking Modal */}
+        <BookingModal />
+
+        {/* AI Portfolio Assistant */}
+        <AIAssistant />
+
+        {/* Retro Developer Terminal (Shortcut: ` or ~) */}
+        <DeveloperTerminal />
         
         {/* Main layout contents */}
         {children}

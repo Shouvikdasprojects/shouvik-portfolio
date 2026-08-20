@@ -15,6 +15,8 @@ export const personalInfo = {
   avatarUrl: "/assets/shouvik.jpg", 
   resumeUrl: "/Shouvik_Das_Resume.pdf", 
   heylink: "https://heylink.me/ShouvikDas/", // HeyLink register
+  github: "https://github.com/Shouvikdasprojects",
+  youtube: "https://youtube.com/@shouvikdasvlogss?si=JxiajbZVf-s12mMU",
   
   // Real biography details extracted from your hobbies and achievements!
   aboutDetails: {
@@ -112,6 +114,28 @@ export const socialLinks = [
     followers: "Active",
     gradient: "from-[#0d0d0d] via-[#222222] to-[#111111]",
     type: "Twitter/X"
+  },
+
+  // E. Developer & Video Creator Links
+  {
+    name: "GitHub Developer Profile",
+    url: "https://github.com/Shouvikdasprojects",
+    username: "@Shouvikdasprojects",
+    description: "Open-source repositories, Next.js 16 projects, Web3D codebases, and experiments.",
+    avatar: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+    followers: "Active",
+    gradient: "from-[#24292e] to-[#040d21]",
+    type: "GitHub"
+  },
+  {
+    name: "Shouvik Das Vlogs (YouTube)",
+    url: "https://youtube.com/@shouvikdasvlogss?si=JxiajbZVf-s12mMU",
+    username: "@shouvikdasvlogss",
+    description: "Travel vlogs across India, foodie adventures, and video storytelling.",
+    avatar: "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg",
+    followers: "900+",
+    gradient: "from-[#FF0000] via-[#cc0000] to-[#990000]",
+    type: "YouTube"
   }
 ];
 
@@ -119,7 +143,7 @@ export const socialLinks = [
 export const youtubeChannels = [
   {
     name: "Shouvik Das Vlogs (YT)",
-    url: "https://www.youtube.com/@shouvikdasvlogss",
+    url: "https://youtube.com/@shouvikdasvlogss?si=JxiajbZVf-s12mMU",
     subscribers: "903",
     focus: "Travel vlogs across India, foodie taste-tests, and vlogging adventures.",
     avatar: "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg", // YouTube Logo

@@ -62,12 +62,16 @@ export default async function ArticlePage({ params }: PageProps) {
     notFound();
   }
 
-  // Fetch related articles from same category
+  // Fetch related articles from same category with fallback
   const allArticles = await getArticles();
-  const relatedArticles = allArticles
+  let relatedArticles = allArticles
     .filter(a => a.slug !== article.slug)
-    .filter(a => a.category.toLowerCase() === article.category.toLowerCase() || true)
-    .slice(0, 2);
+    .filter(a => a.category?.toLowerCase() === article.category?.toLowerCase())
+    .slice(0, 3);
+
+  if (relatedArticles.length < 2) {
+    relatedArticles = allArticles.filter(a => a.slug !== article.slug).slice(0, 3);
+  }
 
   // Estimate reading time from words
   const words = article.content.replace(/<[^>]+>/g, '').split(/\s+/).length;

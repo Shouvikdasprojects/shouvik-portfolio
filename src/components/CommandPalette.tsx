@@ -19,7 +19,10 @@ import {
   Layers, 
   ChevronRight,
   Command,
-  ArrowRight
+  ArrowRight,
+  Bot,
+  Terminal,
+  Calendar
 } from 'lucide-react';
 import { projectsList, socialLinks, youtubeChannels, personalInfo } from '@/lib/realData';
 import { sfx } from '@/lib/soundEffects';
@@ -95,6 +98,42 @@ export default function CommandPalette() {
   const allCommands = useMemo<CommandItem[]>(() => {
     const list: CommandItem[] = [
       // 1. Actions
+      {
+        id: 'action-book-call',
+        title: 'Schedule a 1-on-1 Call',
+        subtitle: 'Open 1-Click Discovery Call Scheduler (IST, EST, PST, GMT)',
+        category: 'Actions',
+        icon: <Calendar size={16} className="text-cyan-400" />,
+        action: () => {
+          setIsOpen(false);
+          window.dispatchEvent(new CustomEvent('open-booking-modal'));
+        },
+        badge: '1-CLICK'
+      },
+      {
+        id: 'action-ai-assistant',
+        title: 'Ask AI Portfolio Assistant',
+        subtitle: 'Interactive AI chat about Shouvik’s skills, projects & availability',
+        category: 'Actions',
+        icon: <Bot size={16} className="text-primary animate-pulse" />,
+        action: () => {
+          setIsOpen(false);
+          window.dispatchEvent(new CustomEvent('open-ai-chat'));
+        },
+        badge: 'AI LIVE'
+      },
+      {
+        id: 'action-developer-terminal',
+        title: 'Open CyberOS Developer Terminal',
+        subtitle: 'Interactive retro terminal shell (Shortcut: ~)',
+        category: 'Actions',
+        icon: <Terminal size={16} className="text-emerald-400" />,
+        action: () => {
+          setIsOpen(false);
+          window.dispatchEvent(new CustomEvent('open-terminal'));
+        },
+        badge: 'CLI ~'
+      },
       {
         id: 'action-resume-view',
         title: 'Open Executive Resume / CV',

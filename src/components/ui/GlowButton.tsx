@@ -73,7 +73,7 @@ export default function GlowButton({
     </>
   );
 
-  const commonClass = `relative group inline-flex items-center justify-center px-8 py-3.5 rounded-full font-bold text-white tracking-wide transition-all duration-300 shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.6)] overflow-hidden ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${className}`;
+  const commonClass = `relative group inline-flex items-center justify-center px-8 py-3.5 rounded-full font-bold text-white tracking-wide transition-all duration-300 shadow-[0_0_15px_var(--primary-glow)] hover:shadow-[0_0_30px_var(--primary-glow)] overflow-hidden ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${className}`;
 
   if (href) {
     return (
