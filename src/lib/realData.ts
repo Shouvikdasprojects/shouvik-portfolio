@@ -208,8 +208,39 @@ export const youtubeChannels = [
   }
 ];
 
-// 4. Real-time Created Anime & Utility Websites (No GitHub source code buttons allowed!)
 export const projectsList = [
+  {
+    title: "7MEDIA",
+    description: "A high-performance cinematic entertainment platform powered by Next.js 15, PostgreSQL, and Cloudflare Edge. Features 4K multi-server playback, live AniList anime calendar, synchronized watch parties, robust 2FA security, canvas-rendered story generators, and sub-200ms edge caching.",
+    techStack: ["Next.js 15", "React 19", "PostgreSQL (Neon)", "Drizzle ORM", "Better-Auth", "Cloudflare Edge", "AniList GraphQL", "TMDB API", "HTML5 Canvas", "Tailwind CSS v4"],
+    imageUrl: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&auto=format&fit=crop&q=80",
+    demoUrl: "https://7media.pages.dev",
+    featured: true,
+    details: {
+      tagline: "Next-Gen 4K Cinema, Live Anime Calendar & Synchronized Social Watch Party Ecosystem.",
+      overview: "7MEDIA is an enterprise-grade cinematic entertainment platform engineered with Next.js 15, React 19, PostgreSQL, and Cloudflare Edge. Built to redefine the digital cinema and anime discovery experience, it features 4K multi-provider video playback, a synchronized AniList seasonal release calendar, cryptographic 2FA authentication, client-side 9:16 Instagram/WhatsApp story card generators, real-time synchronized watch parties, and aggressive sub-200ms edge caching.",
+      features: [
+        { title: "Edge-Cached API Proxy Engine (< 0.2s)", desc: "Designed custom Cloudflare Edge cache headers and in-memory LRU caching for TMDB and AniList metadata, reducing origin server requests by 90% even during peak traffic spikes." },
+        { title: "Enterprise 2-Factor Authentication (2FA)", desc: "Engineered robust security with Better-Auth supporting Google/GitHub OAuth, Email OTP with backup codes, and cryptographic session protection." },
+        { title: "Bulletproof Google Apps Script Mail Engine", desc: "Delivers zero-spam transactional OTP emails in under 1 second with a custom Netflix-style dark vault email template architecture." },
+        { title: "9:16 Social Story Poster Generator", desc: "Client-side HTML5 Canvas rendering dynamic 1080x1920 cinematic story cards with instant PNG download and 1-click sharing capabilities." },
+        { title: "Synchronized Watch Party & Cinema Lounge", desc: "Real-time multi-user synchronized video playback and live community chat room for communal movie watching." },
+        { title: "Google Rich Snippets SEO (Schema.org)", desc: "Automatic structured data injection enabling Google Rich Snippets with star ratings (⭐ 8.6/10) and direct watch action triggers." }
+      ],
+      techStack: {
+        frontend: ["Next.js 15 (App Router)", "React 19", "TypeScript", "Tailwind CSS v4", "Lucide React", "Framer Motion"],
+        backend: ["PostgreSQL (Neon Serverless)", "Drizzle ORM", "Better-Auth", "Server Actions"],
+        apis: ["TMDB Open APIs", "AniList GraphQL API", "Google Apps Script Webhooks"],
+        media: ["Multi-Provider Embed Engine", "HTML5 Canvas (9:16 Story Generator)", "Web Audio API"],
+        deployment: ["Cloudflare Pages Edge", "Cloudflare CDN Caching", "PWA Service Worker", "GitHub CI/CD"]
+      },
+      achievements: [
+        "Architected and deployed 7MEDIA, a production-grade 4K streaming & anime platform handling thousands of titles via TMDB & AniList GraphQL APIs.",
+        "Implemented robust 2FA security (Email OTP + Backup Codes), role-based Master Admin controls, and sub-200ms Cloudflare edge caching.",
+        "Engineered client-side 9:16 canvas poster generators, real-time sync watch parties, and rich Schema.org JSON-LD SEO, achieving 100% Core Web Vitals."
+      ]
+    }
+  },
   {
     title: "Otaku Insider",
     description: "Otaku Insider is a next-generation anime tracking and discovery platform. Featuring a blazingly fast edge-optimized runtime on Cloudflare Workers, it connects directly with AniList GraphQL and Neon Serverless Postgres with Drizzle ORM to provide real-time seasonal schedules, personalized watchlists, and secure Better-Auth authentication.",
@@ -375,7 +406,7 @@ export const projectsList = [
     description: "An advanced, high-performance video and audio downloading tool. Safely intercepts and extracts streams from YouTube, Instagram, X (Twitter), and TikTok into crisp MP4 and MP3 formats at high speeds.",
     techStack: ["Next.js 16", "React 19", "Tailwind CSS v4", "Edge Runtime", "Stream Piping", "REST APIs"],
     imageUrl: "https://images.unsplash.com/photo-1584438784894-089d6a128f3e?w=800&auto=format&fit=crop&q=80",
-    demoUrl: "https://github.com/Shouvikdasprojects",
+    demoUrl: "https://svk-downloader.pages.dev",
     featured: true,
     details: {
       tagline: "Universal Hardware-Accelerated Video, Audio & Media Stream Extractor.",
