@@ -213,7 +213,7 @@ export const projectsList = [
     title: "7MEDIA",
     description: "A high-performance cinematic entertainment platform powered by Next.js 15, PostgreSQL, and Cloudflare Edge. Features 4K multi-server playback, live AniList anime calendar, synchronized watch parties, robust 2FA security, canvas-rendered story generators, and sub-200ms edge caching.",
     techStack: ["Next.js 15", "React 19", "PostgreSQL (Neon)", "Drizzle ORM", "Better-Auth", "Cloudflare Edge", "AniList GraphQL", "TMDB API", "HTML5 Canvas", "Tailwind CSS v4"],
-    imageUrl: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&auto=format&fit=crop&q=80",
+    imageUrl: "/assets/7media.jpg",
     demoUrl: "https://7media.pages.dev",
     featured: true,
     details: {
